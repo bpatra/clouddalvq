@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5AB55AC8-3F80-4D2B-9E3B-2D1024731E56}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudDALVQ</RootNamespace>
+    <AssemblyName>CloudDALVQ</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.4.5.724, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\Resources\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Lokad.Cloud.Framework, Version=1.1.847.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\Lokad.Cloud.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Lokad.Cloud.Provisioning">
+      <HintPath>..\Resources\Lokad.Cloud.Provisioning.dll</HintPath>
+    </Reference>
+    <Reference Include="Lokad.Cloud.Storage, Version=1.1.847.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\Lokad.Cloud.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\Resources\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=1.0.0.280, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncQuantizationModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BlobNames\EvaluationName.cs" />
+    <Compile Include="BlobNames\SnapshotName.cs" />
+    <Compile Include="BlobNames\ProfilingDataName.cs" />
+    <Compile Include="BlobNames\SettingsName.cs" />
+    <Compile Include="BlobNames\SharedWPrototypesName.cs" />
+    <Compile Include="BlobNames\WPrototypesName.cs" />
+    <Compile Include="Common\BitTreeCounter.cs" />
+    <Compile Include="Common\CustomContractAttribute.cs" />
+    <Compile Include="Common\CustomFormatter.cs" />
+    <Compile Include="Common\NewCustomFormatter.cs" />
+    <Compile Include="Common\Processor2.cs" />
+    <Compile Include="Common\Processor3.cs" />
+    <Compile Include="Common\WPrototypesSerializer.cs" />
+    <Compile Include="DataGenerator\BasicSplines.cs" />
+    <Compile Include="DataGenerator\DataGeneratorFactory.cs" />
+    <Compile Include="DataGenerator\DummyGenerator.cs" />
+    <Compile Include="DataGenerator\NormalGenerator.cs" />
+    <Compile Include="DataGenerator\SplinesGeneratorFactory.cs" />
+    <Compile Include="DataGenerator\SplinesMixtureGenerator.cs" />
+    <Compile Include="DataGenerator\IGenerator.cs" />
+    <Compile Include="Common\Processor.cs" />
+    <Compile Include="Common\SamplingScheduler.cs" />
+    <Compile Include="DataGenerator\QuantizationEvaluator.cs" />
+    <Compile Include="DataGenerator\Spline.cs" />
+    <Compile Include="DataGenerator\UniformGenerator.cs" />
+    <Compile Include="Entities\Evaluation.cs" />
+    <Compile Include="Entities\GeneratorType.cs" />
+    <Compile Include="Entities\ProfilingData.cs" />
+    <Compile Include="Entities\Settings.cs" />
+    <Compile Include="Entities\WPrototypes.cs" />
+    <Compile Include="Handy\ExtendIEnumerable.cs" />
+    <Compile Include="Handy\ExtendInt32.cs" />
+    <Compile Include="Handy\ExtendStream.cs" />
+    <Compile Include="Handy\ExtendType.cs" />
+    <Compile Include="Handy\ProjectionComparer.cs" />
+    <Compile Include="Handy\Rand.cs" />
+    <Compile Include="Handy\Range.cs" />
+    <Compile Include="Messages\EvaluationMessage.cs" />
+    <Compile Include="Messages\FinalAveragingMessage.cs" />
+    <Compile Include="Messages\FinalReducingMessage.cs" />
+    <Compile Include="Messages\UpdateAvailableMessage.cs" />
+    <Compile Include="Messages\PartialAveragingMessage.cs" />
+    <Compile Include="Messages\PartialReducingMessage.cs" />
+    <Compile Include="Messages\ProcessMessage.cs" />
+    <Compile Include="Messages\AsyncSetupMessage.cs" />
+    <Compile Include="Messages\SnapshotMessage.cs" />
+    <Compile Include="Messages\TestMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AsyncSetupService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\BatchServices\BatchFinalReducingService.cs" />
+    <Compile Include="Services\BatchServices\BatchPartialReducingService.cs" />
+    <Compile Include="Services\BatchServices\BatchProcessService.cs" />
+    <Compile Include="Services\BatchServices\BatchSetUpService.cs" />
+    <Compile Include="Services\BatchServices\BatchSnapshotService.cs" />
+    <Compile Include="Services\DownsizingService.cs" />
+    <Compile Include="Services\EmpiricalEvaluationService.cs" />
+    <Compile Include="Services\EvaluationService.cs" />
+    <Compile Include="Services\FinalAveragingService.cs" />
+    <Compile Include="Services\FinalReducingService.cs" />
+    <Compile Include="Services\PartialAveragingService.cs" />
+    <Compile Include="Services\PartialReducingService.cs" />
+    <Compile Include="Services\ProcessService.cs" />
+    <Compile Include="Services\SnapshotService.cs" />
+    <Compile Include="Services\TestService.cs" />
+    <Compile Include="TemplateSettings\HackTemplate.cs" />
+    <Compile Include="TemplateSettings\OrthoMixtureLowScale.cs" />
+    <Compile Include="TemplateSettings\OrthoMixtureTemplate.cs" />
+    <Compile Include="TemplateSettings\UniformWeirdTemplate.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

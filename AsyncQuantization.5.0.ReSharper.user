@@ -1,0 +1,419 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">True</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="28" />
+      <Item value="ProcessorV2`0" priority="1" />
+      <Item value="double" priority="22" />
+      <Item value="_sample" priority="0" />
+      <Item value="sample" priority="0" />
+      <Item value="_protos" priority="1" />
+      <Item value="protos" priority="13" />
+      <Item value="data" priority="9" />
+      <Item value="localPrototypes" priority="4" />
+      <Item value="processor" priority="3" />
+      <Item value="miniBatch" priority="2" />
+      <Item value="int" priority="40" />
+      <Item value="private" priority="3" />
+      <Item value="_batchSize" priority="0" />
+      <Item value="batchSize" priority="1" />
+      <Item value="pushLocalVersion" priority="1" />
+      <Item value="pullSharedVersion" priority="1" />
+      <Item value="process" priority="0" />
+      <Item value="whileCounter" priority="1" />
+      <Item value="Log" priority="6" />
+      <Item value="var" priority="48" />
+      <Item value="new" priority="39" />
+      <Item value="Stopwatch`0" priority="1" />
+      <Item value="IOwatch" priority="4" />
+      <Item value="totalWatch" priority="0" />
+      <Item value="DumpExperiments`0" priority="0" />
+      <Item value="settings" priority="72" />
+      <Item value="void" priority="9" />
+      <Item value="Messages" priority="0" />
+      <Item value="string" priority="4" />
+      <Item value="i" priority="9" />
+      <Item value="jobId" priority="2" />
+      <Item value="partialId" priority="0" />
+      <Item value="workerId" priority="0" />
+      <Item value="using" priority="3" />
+      <Item value="Lokad" priority="2" />
+      <Item value="Cloud" priority="2" />
+      <Item value="Storage" priority="2" />
+      <Item value="DataMember" priority="0" />
+      <Item value="IsList" priority="0" />
+      <Item value="false" priority="5" />
+      <Item value="Id" priority="0" />
+      <Item value="CounterEntity" priority="0" />
+      <Item value="counterEntity" priority="0" />
+      <Item value="for" priority="16" />
+      <Item value="snapshotsNames" priority="3" />
+      <Item value="Length" priority="11" />
+      <Item value="PrototypesName" priority="0" />
+      <Item value="Settings`0" priority="7" />
+      <Item value="watch" priority="1" />
+      <Item value="dataGenerator" priority="0" />
+      <Item value="d" priority="5" />
+      <Item value="Util`0" priority="0" />
+      <Item value="prototypes" priority="4" />
+      <Item value="out" priority="0" />
+      <Item value="minDist" priority="1" />
+      <Item value="s" priority="4" />
+      <Item value="dist" priority="1" />
+      <Item value="localWriter" priority="0" />
+      <Item value="if" priority="12" />
+      <Item value="localProtos" priority="7" />
+      <Item value="const" priority="4" />
+      <Item value="bool" priority="0" />
+      <Item value="FinalAveragingMessage`0" priority="0" />
+      <Item value="FinalAveragingService`0" priority="0" />
+      <Item value="affs" priority="2" />
+      <Item value="ratio" priority="3" />
+      <Item value="localVersion" priority="0" />
+      <Item value="sharedVersion" priority="8" />
+      <Item value="return" priority="10" />
+      <Item value="Processor`0" priority="10" />
+      <Item value="_stepCount" priority="0" />
+      <Item value="Sum`1" priority="5" />
+      <Item value="ProcessMessage`0" priority="1" />
+      <Item value="processMessage" priority="2" />
+      <Item value="processingService" priority="0" />
+      <Item value="LocalLauncher`0" priority="0" />
+      <Item value="AsyncSetupService`0" priority="0" />
+      <Item value="asyncSetupService" priority="0" />
+      <Item value="virtual" priority="3" />
+      <Item value="PutVersion`0" priority="0" />
+      <Item value="WPrototypesName`0" priority="1" />
+      <Item value="wPrototypesName" priority="0" />
+      <Item value="WPrototypes`0" priority="16" />
+      <Item value="Console`0" priority="12" />
+      <Item value="batchCount" priority="16" />
+      <Item value="prototypesName" priority="1" />
+      <Item value="PushVersion`0" priority="0" />
+      <Item value="prototypesToPush" priority="0" />
+      <Item value="PullVersion`0" priority="0" />
+      <Item value="_localProtos" priority="1" />
+      <Item value="ProcessService`0" priority="2" />
+      <Item value="n" priority="0" />
+      <Item value="k" priority="4" />
+      <Item value="null" priority="1" />
+      <Item value="true" priority="3" />
+      <Item value="TimeSpan" priority="0" />
+      <Item value="override" priority="0" />
+      <Item value="protected" priority="0" />
+      <Item value="ref" priority="8" />
+      <Item value="providers" priority="0" />
+      <Item value="mockProviders" priority="4" />
+      <Item value="runTimeProviders" priority="0" />
+      <Item value="LocalProcessService`0" priority="0" />
+      <Item value="IBlobStorageProvider`0" priority="1" />
+      <Item value="provider" priority="1" />
+      <Item value="BlobStorage" priority="0" />
+      <Item value="RuntimeArgumentHandle`0" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="str" priority="0" />
+      <Item value="MockLogger`0" priority="0" />
+      <Item value="MockLogger" priority="0" />
+      <Item value="azureProviders" priority="0" />
+      <Item value="object" priority="1" />
+      <Item value="EvaluationExperiments`0" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="List" priority="0" />
+      <Item value="Evaluation`0" priority="1" />
+      <Item value="list" priority="1" />
+      <Item value="foreach" priority="2" />
+      <Item value="catch" priority="0" />
+      <Item value="Exception`0" priority="0" />
+      <Item value="b" priority="0" />
+      <Item value="SnapshotVersion" priority="0" />
+      <Item value="generator1" priority="0" />
+      <Item value="while" priority="1" />
+      <Item value="batchcount" priority="14" />
+      <Item value="scheduler1" priority="0" />
+      <Item value="data1" priority="0" />
+      <Item value="miniBatch1" priority="1" />
+      <Item value="processor1" priority="2" />
+      <Item value="prototypes1" priority="7" />
+      <Item value="frequency" priority="0" />
+      <Item value="generator" priority="1" />
+      <Item value="FileStyleUriParser`0" priority="0" />
+      <Item value="BasePath" priority="2" />
+      <Item value="writer" priority="14" />
+      <Item value="quantizationError" priority="0" />
+      <Item value="MergingExecution`0" priority="0" />
+      <Item value="execution" priority="0" />
+      <Item value="static" priority="5" />
+      <Item value="seed" priority="0" />
+      <Item value="CreateGenerator`0" priority="0" />
+      <Item value="mergedProto" priority="1" />
+      <Item value="merg" priority="0" />
+      <Item value="WPrototypes" priority="3" />
+      <Item value="Affectations" priority="3" />
+      <Item value="proto1" priority="5" />
+      <Item value="Clone`0" priority="0" />
+      <Item value="Prototypes" priority="2" />
+      <Item value="LocalMerge`0" priority="0" />
+      <Item value="prototypes2" priority="3" />
+      <Item value="mergedProtos" priority="5" />
+      <Item value="sum" priority="1" />
+      <Item value="proto2" priority="0" />
+      <Item value="Distance`0" priority="1" />
+      <Item value="distance" priority="0" />
+      <Item value="File`0" priority="2" />
+      <Item value="Math`0" priority="1" />
+      <Item value="quantizationError1" priority="0" />
+      <Item value="Evaluate`0" priority="1" />
+      <Item value="protos3" priority="0" />
+      <Item value="prototypes3" priority="0" />
+      <Item value="mergedError" priority="3" />
+      <Item value="mergedWriter" priority="3" />
+      <Item value="processor2" priority="0" />
+      <Item value="p" priority="16" />
+      <Item value="prototypes4" priority="0" />
+      <Item value="GetData`0" priority="0" />
+      <Item value="AppDomainSetup`0" priority="1" />
+      <Item value="MultiProcessor`0" priority="1" />
+      <Item value="set" priority="0" />
+      <Item value="Schedulers" priority="1" />
+      <Item value="Enumerable`0" priority="1" />
+      <Item value="Scheduler`0" priority="0" />
+      <Item value="_p" priority="1" />
+      <Item value="Data" priority="1" />
+      <Item value="Processors" priority="0" />
+      <Item value="multiProcessor" priority="0" />
+      <Item value="wPrototypes" priority="11" />
+      <Item value="message" priority="1" />
+      <Item value="GetColumns`0" priority="0" />
+      <Item value="_miniBatch" priority="1" />
+      <Item value="builder" priority="0" />
+      <Item value="Autofac" priority="0" />
+      <Item value="Builder" priority="0" />
+      <Item value="NewCustomFormatter`0" priority="0" />
+      <Item value="CancellationToken`0" priority="1" />
+      <Item value="token" priority="1" />
+      <Item value="InvalidTimeZoneException`0" priority="0" />
+      <Item value="MaxBatchCount" priority="0" />
+      <Item value="t" priority="3" />
+      <Item value="outdatedVersion" priority="2" />
+      <Item value="currentVersion" priority="3" />
+      <Item value="ObserverFrequency" priority="0" />
+      <Item value="ParallelExecution`0" priority="4" />
+      <Item value="SamplingScheduler`0" priority="0" />
+      <Item value="scheduler" priority="0" />
+      <Item value="Where`1" priority="0" />
+      <Item value="r" priority="0" />
+      <Item value="Take`1" priority="0" />
+      <Item value="_knots" priority="0" />
+      <Item value="Degree" priority="1" />
+      <Item value="evaluated" priority="1" />
+      <Item value="tt" priority="0" />
+      <Item value="centers" priority="2" />
+      <Item value="stream" priority="0" />
+      <Item value="StreamWriter`0" priority="0" />
+      <Item value="tau" priority="2" />
+      <Item value="error" priority="1" />
+      <Item value="Delay" priority="1" />
+      <Item value="oldLocalVersion" priority="1" />
+      <Item value="NetPipeStyleUriParser`0" priority="0" />
+      <Item value="Initialization`0" priority="0" />
+      <Item value="Frequency" priority="1" />
+      <Item value="protosAsGradients" priority="1" />
+      <Item value="vector" priority="1" />
+      <Item value="gradients" priority="1" />
+      <Item value="cumulatedGradients" priority="1" />
+      <Item value="Reset`0" priority="1" />
+      <Item value="Processor2`0" priority="0" />
+      <Item value="sumGradients" priority="0" />
+      <Item value="else" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Action">
+      <Item value="Invoke`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.Settings">
+      <Item value="PullPeriods" priority="1" />
+      <Item value="P" priority="21" />
+      <Item value="N" priority="4" />
+      <Item value="Seed" priority="4" />
+      <Item value="PushPeriods" priority="7" />
+      <Item value="BatchSize" priority="2" />
+      <Item value="K" priority="3" />
+      <Item value="LocalMergeRatio" priority="0" />
+      <Item value="D" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Lokad.Cloud.Storage.Shared.Logging.ILog">
+      <Item value="InfoFormat`0" priority="4" />
+      <Item value="Info`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Diagnostics.Stopwatch">
+      <Item value="Start`0" priority="1" />
+      <Item value="Stop`0" priority="1" />
+      <Item value="Elapsed" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Diagnostics.Stopwatch">
+      <Item value="StartNew`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.TimeSpan">
+      <Item value="TotalSeconds" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ClientApp.DumpExperiments">
+      <Item value="LocalTest`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.IGenerator">
+      <Item value="GetData`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AsynchronousQuantization.Util">
+      <Item value="NearestPrototype`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.WPrototypes">
+      <Item value="Prototypes" priority="11" />
+      <Item value="Affectations" priority="10" />
+      <Item value="Clone`0" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Lokad.Cloud.Storage.Maybe`1">
+      <Item value="Handle`0" priority="0" />
+      <Item value="HasValue" priority="0" />
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AsyncQuantization.FinalAveragingService">
+      <Item value="FinaleReduceGroup" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.ProcessService">
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Sandbox.LocalLauncher">
+      <Item value="Run`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.AsyncSetupService">
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="12" />
+      <Item value="ReadLine`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AsyncQuantization.ProcessService">
+      <Item value="Initialization`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AsynchronousQuantization.GeneratorType">
+      <Item value="UniformInHyperCube" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Lokad.Cloud.CloudInfrastructureProviders">
+      <Item value="BlobStorage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sandbox.LocalProcessService">
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sandbox.LocalProcessService+MockLogger">
+      <Item value="InfoFormat`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Sandbox.EvaluationExperiments">
+      <Item value="Run`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToArray`2" priority="1" />
+      <Item value="ToArray`1" priority="2" />
+      <Item value="Select`2" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsynchronousQuantization.BlobNames.EvaluationName">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.SnapshotName">
+      <Item value="SnapshotVersion" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.SamplingScheduler">
+      <Item value="MakeBatch`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.Processor">
+      <Item value="ProcessMiniBatch`0" priority="1" />
+      <Item value="LocalMerge`0" priority="0" />
+      <Item value="ApplyDeplacement`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="CreateText`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamWriter">
+      <Item value="Write`0" priority="7" />
+      <Item value="Close`0" priority="6" />
+      <Item value="WriteLine`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sandbox.MergingExecution">
+      <Item value="Equals`0" priority="0" />
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AsyncQuantization.TemplateSettings.OrthoMixtureLowScale">
+      <Item value="Create`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Math">
+      <Item value="Sqrt`0" priority="0" />
+      <Item value="Max`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Linq.Enumerable">
+      <Item value="Range`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sandbox.MultiProcessor">
+      <Item value="Processor`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Autofac.ContainerBuilder">
+      <Item value="Register`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Lokad.Cloud.Management.IProvisioningProvider">
+      <Item value="GetWorkerInstanceCount`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Threading.Tasks.Task`1">
+      <Item value="IsFaulted" priority="0" />
+      <Item value="Result" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Double">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.SplinesMixtureGenerator">
+      <Item value="GetCenters`0" priority="0" />
+      <Item value="GetData`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ClientApp.ParallelExecution">
+      <Item value="LocalMerge`0" priority="0" />
+      <Item value="GetData`0" priority="0" />
+      <Item value="Initialization`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AsyncQuantization.Processor2">
+      <Item value="ProcessMiniBatch`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ClientApp.MultiGradientProcessor">
+      <Item value="ProcessMiniBatch`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9/f:EvaluationExperiments.cs" caret="261" fromTop="3" />
+      <File id="5AC77287-1D1F-48FD-8DD5-CDBB63383586/f:Program.cs" caret="1139" fromTop="31" />
+      <File id="5AB55AC8-3F80-4D2B-9E3B-2D1024731E56/d:DataGenerator/f:DataGeneratorFactory.cs" caret="596" fromTop="14" />
+      <File id="81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9/f:Program.cs" caret="376" fromTop="6" />
+      <File id="81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9/f:DumpExperiments.cs" caret="1869" fromTop="36" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9/f:DumpExperiments.cs" caret="1519" fromTop="13" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files\NUnit 2.5.2\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
