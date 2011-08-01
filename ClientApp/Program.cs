@@ -18,6 +18,9 @@ using ClientApp;
 
 namespace ClientApp
 {
+    /// <summary>
+    /// Quick launcher for cloud execution, sends a instance of <cref AsyncSetupMessage/> in azure hosted service.
+    /// </summary>
     class Program
     {
         public const string BasePath = @"../../../Output/";

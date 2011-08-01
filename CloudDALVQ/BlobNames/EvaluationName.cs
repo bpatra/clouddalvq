@@ -35,7 +35,7 @@ namespace CloudDALVQ.BlobNames
             EvaluationType = evaluationType;
         }
 
-        /// <summary>Helper to list all local prototypes from a specific (code version/iteration).</summary>
+        /// <summary>Helper to list all evaluations for a specific run.</summary>
         public static EvaluationName GetPrefix(DateTimeOffset expiration)
         {
             return new EvaluationName(expiration,null, null);

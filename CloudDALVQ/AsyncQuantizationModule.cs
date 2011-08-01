@@ -13,13 +13,12 @@ using Lokad.Cloud.Storage.Shared;
 
 namespace CloudDALVQ
 {
-    /// <summary>Autofac module loading parts required for this project (mostly ProtoBuf Formatter).</summary>
+    /// <summary>Autofac module loading parts required for this project (mostly the custom formatter).</summary>
     public class CloudDALVQModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
             //Formatter 
-            //builder.Register<CustomFormatter>().As<IDataSerializer>();
             builder.RegisterType<NewCustomFormatter>().As<IDataSerializer>();
         }
     }
