@@ -24,10 +24,10 @@ namespace LocalProcessService
 
         public MultiGradientProcessor(Settings settings)
         {
-            Processors = Enumerable.Range(0, settings.P).Select(p => new Processor2()).ToArray();
-            Schedulers = Enumerable.Range(0, settings.P).Select(p => new SamplingScheduler(0)).ToArray();
-            _miniBatch = Enumerable.Range(0, settings.P).Select(p => new double[settings.BatchSize][]).ToArray();
-            P = settings.P;
+            Processors = Enumerable.Range(0, settings.M).Select(p => new Processor2()).ToArray();
+            Schedulers = Enumerable.Range(0, settings.M).Select(p => new SamplingScheduler(0)).ToArray();
+            _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
+            P = settings.M;
         }
 
         public void ProcessMiniBatch(ref WPrototypes[] localProtos, ref WPrototypes[] sumGradients)

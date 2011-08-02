@@ -36,7 +36,7 @@ namespace CloudDALVQ.Services
 
             //Pushing Processing messages.
             //[durut] such logic is more subtile than it appears do not modify.
-            var jobIdSlices = Range.Array(settings.P).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.P)));
+            var jobIdSlices = Range.Array(settings.M).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.M)));
             int jobId = 0;
             for (int i = 0; i < jobIdSlices.Length; i++)
             {

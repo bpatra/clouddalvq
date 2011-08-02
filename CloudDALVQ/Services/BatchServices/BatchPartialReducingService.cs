@@ -73,7 +73,7 @@ namespace CloudDALVQ.Services
         static WPrototypesName[] PrototypesRemainingToLoad( string partialId, int iteration, Settings settings, List<string> prototypesAlreadyLoaded)
         {
             var reducerId = int.Parse(partialId);
-            var versionIdsToLoad = Range.Array(settings.P).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.P)))[reducerId];
+            var versionIdsToLoad = Range.Array(settings.M).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.M)))[reducerId];
 
             var versionsToLoad = 
                 versionIdsToLoad

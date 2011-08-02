@@ -92,7 +92,7 @@ namespace CloudDALVQ.Services
         {
             if (settings.AveragingWith2Layers)
             {
-                var partialReducerCount = Range.Array(settings.P).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.P))).Length;
+                var partialReducerCount = Range.Array(settings.M).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.M))).Length;
                 var partialIds = Range.Array(partialReducerCount);
 
                 var versionsToLoad =
@@ -105,7 +105,7 @@ namespace CloudDALVQ.Services
             }
             else
             {
-                var indices = Range.Array(settings.P).SliceArray((int) Math.Ceiling(Math.Sqrt(settings.P)));
+                var indices = Range.Array(settings.M).SliceArray((int) Math.Ceiling(Math.Sqrt(settings.M)));
 
                 var ids = Range.Array(indices.Length).SelectMany(i => indices[i].Select(j => new {i, j}));
 

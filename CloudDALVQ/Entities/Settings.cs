@@ -23,7 +23,7 @@ namespace CloudDALVQ.Entities
 
         /// <summary>Number of "Mappers"</summary>
         [DataMember]
-        public int P { get; set; }
+        public int M { get; set; }
 
         /// <summary>Number of prototypes</summary>
         [DataMember]
@@ -103,14 +103,14 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public bool AveragingWith2Layers { get; set; }
 
-        public Settings(int n, int d, int p, int k, int g, int knotCount, int iterationIfBatch,
+        public Settings(int n, int d, int m, int k, int g, int knotCount, int iterationIfBatch,
             int batchSize, int pushPeriods, 
             int evaluationCount, double mergingRatio, TimeSpan timeForProcessing, TimeSpan timeForConsensus, 
             GeneratorType genType, int seed, bool averagingWith2Layers , bool sameInitialisation, bool processingEnabled, bool evaluationEnabled)
         {
             N = n;
             D = d;
-            P = p;
+            M = m;
             K = k;
             G = g;
             IterationIfBatchKMeans = iterationIfBatch;

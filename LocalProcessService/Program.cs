@@ -27,7 +27,7 @@ namespace LocalProcessService
             {
                 foreach (var m in mS)
                 {
-                    settings.P = m;
+                    settings.M = m;
                     settings.PushPeriods = tau;
 
                     var execution = new DelayedGradientParallelExecution();

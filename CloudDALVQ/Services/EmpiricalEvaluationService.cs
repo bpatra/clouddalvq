@@ -59,7 +59,7 @@ namespace CloudDALVQ.Services
 
              var watch = Stopwatch.StartNew();
              double quantizationError = 0;
-             for (int i = 0; i < settings.P;i++)
+             for (int i = 0; i < settings.M;i++)
              {
                  var dataGenerator = DataGeneratorFactory.GetGenerator(settings, settings.Seed + i);
                  var data = dataGenerator.GetData(settings.N);
@@ -70,7 +70,7 @@ namespace CloudDALVQ.Services
                      quantizationError += minDist;
                  }
              }
-             quantizationError /= (settings.N*settings.P);
+             quantizationError /= (settings.N*settings.M);
           
              var blobCounter = new BitTreeCounter(message.CounterEntity);
 
@@ -79,7 +79,7 @@ namespace CloudDALVQ.Services
                  EvaluationDuration = watch.Elapsed.TotalSeconds,
                  ObservationDate = message.PrototypesName.ObservationDate,
                  QuantizationError = quantizationError,
-                 SampleCount = settings.P* settings.N,
+                 SampleCount = settings.M* settings.N,
                  Variance = 0,
                  Affectations = prototypes.Affectations
              };

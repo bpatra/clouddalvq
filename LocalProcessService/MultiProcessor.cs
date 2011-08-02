@@ -25,10 +25,10 @@ namespace LocalProcessService
 
         public MultiProcessor(Settings settings)
         {
-            Processors = Enumerable.Range(0, settings.P).Select(p => new Processor()).ToArray();
-            Schedulers = Enumerable.Range(0, settings.P).Select(p => new SamplingScheduler(0)).ToArray();
-            _miniBatch = Enumerable.Range(0, settings.P).Select(p => new double[settings.BatchSize][]).ToArray();
-            P = settings.P;
+            Processors = Enumerable.Range(0, settings.M).Select(p => new Processor()).ToArray();
+            Schedulers = Enumerable.Range(0, settings.M).Select(p => new SamplingScheduler(0)).ToArray();
+            _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
+            P = settings.M;
         }
 
         public WPrototypes[] Process(int batchCount, WPrototypes[] prototypes)

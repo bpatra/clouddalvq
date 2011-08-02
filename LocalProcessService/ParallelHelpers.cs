@@ -17,8 +17,8 @@ namespace LocalProcessService
     {
         public static double[][][] GetData(Settings settings)
         {
-            var data = new double[settings.P][][];
-            for (int p = 0; p < settings.P; p++)
+            var data = new double[settings.M][][];
+            for (int p = 0; p < settings.M; p++)
             {
                 data[p] = (DataGeneratorFactory.GetGenerator(settings, settings.Seed + p))
                 .GetData(settings.N);
@@ -30,7 +30,7 @@ namespace LocalProcessService
         {
             var data = GetData(settings);
             double error = 0;
-            for (int p = 0; p < settings.P; p++)
+            for (int p = 0; p < settings.M; p++)
             {
                 for (int i = 0; i < data[p].Length; i++)
                 {
@@ -39,13 +39,13 @@ namespace LocalProcessService
                     error += minDist;
                 }
             }
-            return error / settings.P;
+            return error / settings.M;
         }
 
         public static WPrototypes[] Initialization(Settings settings)
         {
-            return Enumerable.Range(0, settings.P)
-                .Select(p => ProcessService.Initialization(settings, settings.P + 1))
+            return Enumerable.Range(0, settings.M)
+                .Select(p => ProcessService.Initialization(settings, settings.M + 1))
                 .ToArray();
         }
 
@@ -73,8 +73,8 @@ namespace LocalProcessService
 
         public static WPrototypes[] Reset(Settings settings)
         {
-            var gradients = new WPrototypes[settings.P];
-            for (int p = 0; p < settings.P; p++)
+            var gradients = new WPrototypes[settings.M];
+            for (int p = 0; p < settings.M; p++)
             {
                 var protos = new double[settings.K][];
                 for (int k = 0; k < settings.K; k++)

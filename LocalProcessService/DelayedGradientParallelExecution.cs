@@ -22,7 +22,7 @@ namespace LocalProcessService
 
         public void Start(Settings settings)
         {
-            var writer = File.CreateText(BasePath + "M=" + settings.P + "tau=" + settings.PushPeriods + ".txt");
+            var writer = File.CreateText(BasePath + "M=" + settings.M + "tau=" + settings.PushPeriods + ".txt");
 
             var data = ParallelHelpers.GetData(settings);
             var multiProcessor = new MultiGradientProcessor(settings) { Data = data };
@@ -40,7 +40,7 @@ namespace LocalProcessService
                 multiProcessor.ProcessMiniBatch(ref wPrototypes, ref gradients);
                 if (batchcount % settings.PushPeriods == 0)
                 {
-                    for (int p = 0; p < settings.P; p++ )
+                    for (int p = 0; p < settings.M; p++ )
                     {
                         for (int k = 0; k < K; k++)
                         {
@@ -52,7 +52,7 @@ namespace LocalProcessService
                         }
                     }
 
-                    for (int p = 0; p < settings.P; p++)
+                    for (int p = 0; p < settings.M; p++)
                     {
                         for (int k = 0; k < K; k++)
                         {

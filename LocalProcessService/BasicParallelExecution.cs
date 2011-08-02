@@ -24,7 +24,7 @@ namespace LocalProcessService
 
         public void Start(Settings settings)
         {
-            var writer = File.CreateText(BasePath + "M="+settings.P+ "tau=" + settings.PushPeriods +".txt");
+            var writer = File.CreateText(BasePath + "M="+settings.M+ "tau=" + settings.PushPeriods +".txt");
 
             var data = ParallelHelpers.GetData(settings);
             var multiProcessor = new MultiProcessor(settings){Data = data};
@@ -38,7 +38,7 @@ namespace LocalProcessService
                 if (batchcount % settings.PushPeriods == 0)
                 {
                     var sharedProtos = ParallelHelpers.BasicAveraging(wPrototypes);
-                    for (int p = 0; p < settings.P; p++ )
+                    for (int p = 0; p < settings.M; p++ )
                     {
                         wPrototypes[p] = sharedProtos.Clone();
                     }
