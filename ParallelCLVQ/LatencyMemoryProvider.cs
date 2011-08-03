@@ -13,6 +13,9 @@ using Lokad.Cloud.Storage.InMemory;
 
 namespace LocalProcessService
 {
+    /// <summary>
+    /// This "in memory" Blobstorage provider inserts artificial latency delays to emulate I/O costs.
+    /// </summary>
     public class LatencyMemoryProvider : IBlobStorageProvider
     {
         private readonly MemoryBlobStorageProvider _memoryProvider;
