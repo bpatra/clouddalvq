@@ -23,13 +23,12 @@ namespace CloudDALVQ.Common
                 var binarySerializer = new BinaryFormatter();
                 return binarySerializer.Deserialize(sourceStream);
             }
-            
             else
             {
                 var serializer = GetXmlSerializer(type);
 
-                using(var decompressed = sourceStream.Decompress(true))
-                using(var reader = XmlDictionaryReader.CreateBinaryReader(decompressed, XmlDictionaryReaderQuotas.Max))
+                using (var decompressed = sourceStream.Decompress(true))
+                using (var reader = XmlDictionaryReader.CreateBinaryReader(decompressed, XmlDictionaryReaderQuotas.Max))
                 {
                     return serializer.ReadObject(reader);
                 }
@@ -49,7 +48,7 @@ namespace CloudDALVQ.Common
 
             else
             {
-                XmlObjectSerializer serializer = GetXmlSerializer(type);
+                var serializer = GetXmlSerializer(type);
 
                 using (var compressed = destinationStream.Compress(true))
                 using (var writer = XmlDictionaryWriter.CreateBinaryWriter(compressed, null, null, false))

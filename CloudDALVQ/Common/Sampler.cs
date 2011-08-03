@@ -12,11 +12,11 @@ using Lokad;
 
 namespace CloudDALVQ.Common
 {
-    public class SamplingScheduler
+    public class Sampler
     {
         private int _sampleIndex;
 
-        public SamplingScheduler(int sampleIndex)
+        public Sampler(int sampleIndex)
         {
             _sampleIndex = sampleIndex; 
         }

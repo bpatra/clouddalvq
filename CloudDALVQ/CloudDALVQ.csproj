@@ -85,7 +85,7 @@
     <Compile Include="DataGenerator\SplinesGeneratorFactory.cs" />
     <Compile Include="DataGenerator\SplinesMixtureGenerator.cs" />
     <Compile Include="DataGenerator\IGenerator.cs" />
-    <Compile Include="Common\SamplingScheduler.cs" />
+    <Compile Include="Common\Sampler.cs" />
     <Compile Include="DataGenerator\QuantizationEvaluator.cs" />
     <Compile Include="DataGenerator\Spline.cs" />
     <Compile Include="DataGenerator\UniformGenerator.cs" />
@@ -99,7 +99,6 @@
     <Compile Include="Handy\ExtendStream.cs" />
     <Compile Include="Handy\ExtendType.cs" />
     <Compile Include="Handy\ProjectionComparer.cs" />
-    <Compile Include="Handy\Rand.cs" />
     <Compile Include="Handy\Range.cs" />
     <Compile Include="Messages\EvaluationMessage.cs" />
     <Compile Include="Messages\FinalAveragingMessage.cs" />

@@ -12,7 +12,7 @@ using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Template
 {
-    public class OrthoMixtureLowScale
+    public class OrthoMixtureLowScaleTemplate
     {
         const int p = 1;
         const int n = 1000;

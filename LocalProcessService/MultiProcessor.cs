@@ -17,7 +17,7 @@ namespace LocalProcessService
     public class MultiProcessor
     {
         public PrototypeProcessor[] PrototypeProcessors { get; set; }
-        public SamplingScheduler[] Schedulers { get; set; }
+        public Sampler[] Schedulers { get; set; }
         public double[][][] Data { get; set; }
         private readonly double[][][] _miniBatch;
 
@@ -26,7 +26,7 @@ namespace LocalProcessService
         public MultiProcessor(Settings settings)
         {
             PrototypeProcessors = Enumerable.Range(0, settings.M).Select(p => new PrototypeProcessor()).ToArray();
-            Schedulers = Enumerable.Range(0, settings.M).Select(p => new SamplingScheduler(0)).ToArray();
+            Schedulers = Enumerable.Range(0, settings.M).Select(p => new Sampler(0)).ToArray();
             _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
             P = settings.M;
         }

@@ -128,7 +128,7 @@ namespace CloudDALVQ.Services
                     //Delete messages from queue
                     QueueStorage.DeleteRange(versionsToLoad);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Log.InfoFormat("Issue while pushing prototypes in final reducer.");
                 }
