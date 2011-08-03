@@ -66,17 +66,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncQuantizationModule.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="BlobNames\EvaluationName.cs" />
     <Compile Include="BlobNames\SnapshotName.cs" />
     <Compile Include="BlobNames\SettingsName.cs" />
     <Compile Include="BlobNames\SharedWPrototypesName.cs" />
     <Compile Include="BlobNames\WPrototypesName.cs" />
+    <Compile Include="CloudDALVQModule.cs" />
     <Compile Include="Common\BitTreeCounter.cs" />
     <Compile Include="Common\CustomContractAttribute.cs" />
-    <Compile Include="Common\CustomFormatter.cs" />
     <Compile Include="Common\NewCustomFormatter.cs" />
     <Compile Include="Common\PrototypeProcessor.cs" />
     <Compile Include="Common\DisplacementProcessor.cs" />
