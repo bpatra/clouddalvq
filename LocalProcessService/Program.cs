@@ -20,7 +20,7 @@ namespace LocalProcessService
     {
         static void Main(string[] args)
         {
-            var settings = OrthoMixtureLowScale.Create();
+            var settings = OrthoMixtureLowScaleTemplate.Create();
             var mS = new[] { 1, 2, 10};
             var tauS = new[] { 1 , 10, 100, 200};
             foreach (var tau in tauS)

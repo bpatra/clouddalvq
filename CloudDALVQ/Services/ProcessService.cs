@@ -49,8 +49,8 @@ namespace CloudDALVQ
             int writeFailureCount = 0;
 
             var averagingQueueName = settings.AveragingWith2Layers
-                                         ? PartialReducingService.PartialReduceQueueName + message.PartialId
-                                         : FinalReducingService.FinalReduceQueueName;
+                                         ? PartialReduceService.PartialReduceQueueName + message.PartialId
+                                         : FinalReduceService.FinalReduceQueueName;
 
             WPrototypes localPrototypes = null;
 

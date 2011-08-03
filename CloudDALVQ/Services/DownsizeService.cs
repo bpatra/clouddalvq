@@ -29,7 +29,7 @@ namespace CloudDALVQ.Services
         ProcessingTimeoutSeconds = 300,
         SchedulePerWorker = false,
         TriggerInterval = 600)]
-    public class DownsizingService : ScheduledService
+    public class DownsizeService : ScheduledService
     {
 
         TimeSpan finishDay = new TimeSpan(19, 0, 0); //UTC+2 (france): 9pm 

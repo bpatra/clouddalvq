@@ -23,7 +23,7 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
-    public class PartialReducingService : QueueService<PartialReducingMessage>
+    public class PartialReduceService : QueueService<PartialReducingMessage>
     {
         public const string PartialReduceQueueName = "partialreducegradientqueue";
         private const int MilliSeconds = 100; //[patra]: comment purpose here !
@@ -93,15 +93,15 @@ namespace CloudDALVQ.Services
 
                     //Push a message in the corresponding queue
                     var updateMessage = 
-                        new UpdateAvailableMessage(newBlobname, FinalReducingService.FinaleReduceGroup, message.PartialId);
+                        new UpdateAvailableMessage(newBlobname, FinalReduceService.FinaleReduceGroup, message.PartialId);
 
-                    QueueStorage.Put(FinalReducingService.FinalReduceQueueName, updateMessage);
+                    QueueStorage.Put(FinalReduceService.FinalReduceQueueName, updateMessage);
 
                     QueueStorage.DeleteRange(updateMessages);
                     
                     sumOfUpdates.Empty();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Log.InfoFormat("Exception raised while pushing prototypes in partial reducer " + message.PartialId);
                 }

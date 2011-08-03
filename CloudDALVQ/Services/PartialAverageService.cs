@@ -23,7 +23,7 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true, 
         Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
-    public class PartialAveragingService : QueueService<PartialAveragingMessage>
+    public class PartialAverageService : QueueService<PartialAveragingMessage>
     {
         public const string PartialReduceQueueName = "partialreducequeue";
         private const int MilliSeconds = 500; //[patra]: comment purpose here !
@@ -130,14 +130,14 @@ namespace CloudDALVQ.Services
                 {
                     stopwatch2.Restart();
                     //Push it into last reduce step
-                    BlobStorage.PutBlob(new WPrototypesName(settings.Expiration, FinalAveragingService.FinaleReduceGroup, message.PartialId),
+                    BlobStorage.PutBlob(new WPrototypesName(settings.Expiration, FinalAverageService.FinaleReduceGroup, message.PartialId),
                                         newVersion);
 
                     //Log.InfoFormat("partialId " + message.PartialId + "pushed new version using " + dictionary.Count + " versions in {0} s", stopwatch2.Elapsed.TotalSeconds);
 
                     //Push a message in the corresponding queue
-                    QueueStorage.Put(FinalAveragingService.FinalAveragingQueueName,
-                                     new WPrototypesName(settings.Expiration, FinalAveragingService.FinaleReduceGroup, message.PartialId));
+                    QueueStorage.Put(FinalAverageService.FinalAveragingQueueName,
+                                     new WPrototypesName(settings.Expiration, FinalAverageService.FinaleReduceGroup, message.PartialId));
 
                     QueueStorage.DeleteRange(allNames);
                 }

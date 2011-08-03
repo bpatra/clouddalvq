@@ -51,8 +51,8 @@ namespace CloudDALVQTests
                 evaluationCount, mergingRatio, processDuration, additionalTimeForConsensus, GeneratorType.UniformInHyperCube, 13, false, true, true, true);
 
             var asyncSetupService = new AsyncSetupService {Providers = providers, RuntimeProviders = runTimeProviders};
-            var finalMergeService = new FinalReducingService { Providers = providers, RuntimeProviders = runTimeProviders };
-            var partialMergeService = new PartialReducingService { Providers = providers, RuntimeProviders = runTimeProviders };
+            var finalMergeService = new FinalReduceService { Providers = providers, RuntimeProviders = runTimeProviders };
+            var partialMergeService = new PartialReduceService { Providers = providers, RuntimeProviders = runTimeProviders };
             var processingService = new ProcessService { Providers = providers, RuntimeProviders = runTimeProviders };
             
             var setUpMessage = new AsyncSetupMessage(settings);
