@@ -10,13 +10,13 @@ using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Common
 {
-    public class Processor
+    public class PrototypeProcessor
     {
         /// <summary> </summary>
         private int _stepCount;
 
 
-        public Processor()
+        public PrototypeProcessor()
         {
             _stepCount = 1;
         }

@@ -179,7 +179,7 @@ namespace CloudDALVQ
                 localPrototypes = settings.SameInitialisation ? Initialization(settings, settings.Seed + 19934)
                     : Initialization(settings, settings.Seed + message.Seed + 1);
 
-                var processor = new Processor3();
+                var processor = new DisplacementProcessor();
 
                 var localDeplacement = InitDeplacement(settings);
 

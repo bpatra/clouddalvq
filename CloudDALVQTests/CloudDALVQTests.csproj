@@ -62,7 +62,6 @@
     <Compile Include="ComparingVersion.cs" />
     <Compile Include="NormalRandTests.cs" />
     <Compile Include="SchmidtTests.cs" />
-    <Compile Include="SharedWPrototypesNameTests.cs" />
     <Compile Include="SplinesMixtureGeneratorTests.cs" />
     <Compile Include="EvaluationTests.cs" />
     <Compile Include="OverallTests.cs" />

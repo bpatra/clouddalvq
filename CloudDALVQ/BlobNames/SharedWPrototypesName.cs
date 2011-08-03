@@ -25,54 +25,5 @@ namespace CloudDALVQ.BlobNames
         {
         }
     }
-
-    [DataContract]
-    public class SharedWPrototypesName2 : BlobName<WPrototypes>
-    {
-        [Rank(0)]
-        [DataMember]
-        public string Name { get; set; }
-
-        [DataMember]
-        private string _containerName;
-
-        public override string ContainerName
-        {
-            get { return _containerName; }
-        }
-
-        public static SharedWPrototypesName2 InstanceNumber(int i)
-        {
-            return Containers[i];
-        }
-
-        private static readonly SharedWPrototypesName2[] Containers;
-
-        private const int MaxContainers = 20;
-
-        private const int Seed = 28;
-
-        static SharedWPrototypesName2()
-        {
-            //Random generator is started with the same seed, whatever the worker.
-            var random = new Random(Seed);
-
-            //Admissible letters to build container names
-            var admissibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890".ToCharArray();
-
-            Containers = new SharedWPrototypesName2[MaxContainers];
-            for (int i = 0; i < MaxContainers; i++)
-            {
-                var containerName = new string(Range.Array(12).Select(e => admissibleLetters[random.Next(admissibleLetters.Length)]).ToArray());
-                Containers[i] = new SharedWPrototypesName2(containerName, "sharedVersion-" + i);
-            }
-        }
-
-        private SharedWPrototypesName2(string containerName, string blobName)
-        {
-            _containerName = containerName;
-            Name = blobName;
-        }
-    }
 }
 

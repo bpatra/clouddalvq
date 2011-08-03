@@ -71,7 +71,6 @@
     </Compile>
     <Compile Include="BlobNames\EvaluationName.cs" />
     <Compile Include="BlobNames\SnapshotName.cs" />
-    <Compile Include="BlobNames\ProfilingDataName.cs" />
     <Compile Include="BlobNames\SettingsName.cs" />
     <Compile Include="BlobNames\SharedWPrototypesName.cs" />
     <Compile Include="BlobNames\WPrototypesName.cs" />
@@ -79,8 +78,8 @@
     <Compile Include="Common\CustomContractAttribute.cs" />
     <Compile Include="Common\CustomFormatter.cs" />
     <Compile Include="Common\NewCustomFormatter.cs" />
-    <Compile Include="Common\Processor.cs" />
-    <Compile Include="Common\Processor3.cs" />
+    <Compile Include="Common\PrototypeProcessor.cs" />
+    <Compile Include="Common\DisplacementProcessor.cs" />
     <Compile Include="Common\WPrototypesSerializer.cs" />
     <Compile Include="DataGenerator\BasicSplines.cs" />
     <Compile Include="DataGenerator\DataGeneratorFactory.cs" />
