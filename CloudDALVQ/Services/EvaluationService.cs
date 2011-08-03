@@ -23,7 +23,7 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true, 
        Description = "Evaluation service")]
-    public class EvaluationService : BaseService<EvaluationMessage>
+    public class EvaluationService : QueueService<EvaluationMessage>
     {
         protected override void Start(EvaluationMessage message)
         {

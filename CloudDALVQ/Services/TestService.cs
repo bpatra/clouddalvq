@@ -17,7 +17,7 @@ namespace CloudDALVQ.Services
 {
      [QueueServiceSettings(AutoStart = true, 
         Description = "Testing purpose service")]
-    public class TestService : BaseService<TestMessage>
+    public class TestService : QueueService<TestMessage>
     {
          protected override void Start(TestMessage message)
          {
@@ -25,9 +25,9 @@ namespace CloudDALVQ.Services
              Action action2 = () => { Thread.Sleep(10000); Log.InfoFormat("Fin Action2, time :" + DateTimeOffset.Now.ToString()); };
              Action action3 = () => { Thread.Sleep(60000); Log.InfoFormat("Fin Action3, time :" + DateTimeOffset.Now.ToString()); };
 
-             Log.InfoFormat("Start at :" + DateTimeOffset.Now.ToString());
+             Log.InfoFormat("Start at :" + DateTimeOffset.Now);
              Parallel.Invoke(new[]{action1, action2, action3});
-             Log.InfoFormat("End at :" + DateTimeOffset.Now.ToString());
+             Log.InfoFormat("End at :" + DateTimeOffset.Now);
          }
 
          

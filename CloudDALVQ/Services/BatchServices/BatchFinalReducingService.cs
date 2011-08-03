@@ -20,7 +20,7 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
-    public class BatchFinalReducingService : BaseService<BatchFinalReducingMessage>
+    public class BatchFinalReducingService : QueueService<BatchFinalReducingMessage>
     {
         protected override void Start(BatchFinalReducingMessage message)
         {

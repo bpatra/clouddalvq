@@ -15,7 +15,7 @@ namespace LocalProcessService
 {
     public class MultiGradientProcessor
     {
-        public Processor2[] Processors { get; set; }
+        public Processor3[] Processors { get; set; }
         public SamplingScheduler[] Schedulers { get; set; }
         public double[][][] Data { get; set; }
         private readonly double[][][] _miniBatch;
@@ -24,7 +24,7 @@ namespace LocalProcessService
 
         public MultiGradientProcessor(Settings settings)
         {
-            Processors = Enumerable.Range(0, settings.M).Select(p => new Processor2()).ToArray();
+            Processors = Enumerable.Range(0, settings.M).Select(p => new Processor3()).ToArray();
             Schedulers = Enumerable.Range(0, settings.M).Select(p => new SamplingScheduler(0)).ToArray();
             _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
             P = settings.M;
@@ -35,7 +35,7 @@ namespace LocalProcessService
             for (int p = 0; p < P; p++)
             {
                 Schedulers[p].MakeBatch(Data[p], ref _miniBatch[p]);
-                Processors[p].ProcessMiniBatch(_miniBatch[p], ref localProtos[p], ref sumGradients[p], 1.0);
+                Processors[p].ProcessMiniBatch(_miniBatch[p], ref localProtos[p], ref sumGradients[p], 1);
             }
         }
 

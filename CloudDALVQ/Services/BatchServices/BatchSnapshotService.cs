@@ -17,11 +17,10 @@ namespace CloudDALVQ.Services
     /// a dedicated part of the storage. This is used to evaluate evolution of loss function with time.</summary>
     [QueueServiceSettings(AutoStart = true,
        Description = "Snapshot service gets snapshot of prototypes and store them in a dedicated part of the storage ")]
-    public class BatchSnapshotService : BaseService<BatchSnapshotMessage>
+    public class BatchSnapshotService : QueueService<BatchSnapshotMessage>
     {
         public const int PingFreqSec = 10;// previous3;
         public const string SharedVersion = "sharedType";
-        public const string LocalVersion = "localType";
 
         protected override void Start(BatchSnapshotMessage message)
         {

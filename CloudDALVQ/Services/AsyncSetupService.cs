@@ -11,24 +11,24 @@ using CloudDALVQ.DataGenerator;
 using CloudDALVQ;
 using CloudDALVQ.Handy;
 using CloudDALVQ.Messages;
-using Lokad;
 using Lokad.Cloud.ServiceFabric;
 using Lokad.Cloud.Storage;
-using LogLevel = Lokad.Cloud.Storage.Shared.Logging.LogLevel;
 
 namespace CloudDALVQ.Services
 {
-    [QueueServiceSettings(AutoStart = true,
-        Description = "Experiment set up service")]
-    public class AsyncSetupService : BaseService<AsyncSetupMessage>
+    /// <summary>
+    /// Initialisation service, start up the dalvq algorithm.
+    /// </summary>
+    [QueueServiceSettings(AutoStart = true, Description = "Experiment set up service")]
+    public class AsyncSetupService : QueueService<AsyncSetupMessage>
     {
         protected override void Start(AsyncSetupMessage message)
         {
-            //Pushing settings into the storage. Each worker can retrieve it (alternative to messages).
+            //Pushing settings into the storage. Each worker can retrieve them (alternative to put them in messages).
             var settings = message.Settings;
             BlobStorage.PutBlob(SettingsName.Default, settings);
 
-            // Shared version is initialized. 2006 WC finals as seed.
+            // Shared version is initialized.
             var sharedPrototypes = settings.SameInitialisation ? ProcessService.Initialization(settings, 19934 + settings.Seed) 
                 : ProcessService.Initialization(settings, 2006 + settings.Seed);
 

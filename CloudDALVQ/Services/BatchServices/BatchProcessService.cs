@@ -23,7 +23,7 @@ namespace CloudDALVQ.Services
     /// <summary>Service responsible for the clustering implementation</summary>
     [QueueServiceSettings(AutoStart = true,
        ProcessingTimeoutSeconds = 15000)]
-    public class BatchProcessService : BaseService<BatchProcessMessage>
+    public class BatchProcessService : QueueService<BatchProcessMessage>
     {
         protected override void Start(BatchProcessMessage message)
         {

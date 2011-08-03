@@ -19,15 +19,15 @@ using ClientApp;
 namespace ClientApp
 {
     /// <summary>
-    /// Quick launcher for cloud execution, sends a instance of <cref AsyncSetupMessage/> in azure hosted service.
+    /// Launcher for cloud execution, sends a instance of <cref AsyncSetupMessage/> in azure hosted service.
     /// </summary>
     class Program
     {
         public const string BasePath = @"../../../Output/";
         static void Main(string[] args)
         {
-            var accountName = "durut";
-            var accountKey = "xxx";
+            const string accountName = "durut";
+            const string accountKey = "xxx";
             var providers = Standalone.CreateProviders("DefaultEndpointsProtocol=http;AccountName=" + accountName + ";AccountKey=" + accountKey);
 
             var settings = OrthoMixtureTemplate.Create();

@@ -15,18 +15,18 @@ using CloudDALVQ.Entities;
 using CloudDALVQ.Messages;
 using Lokad.Cloud.Storage;
 using Lokad.Cloud.ServiceFabric;
+using CloudDALVQ.Handy;
 using Lokad.Cloud.Storage.Shared.Logging;
 using Lokad.Cloud.Storage.Shared.Threading;
-using CloudDALVQ.Handy;
 
 namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true, 
         Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
-    public class PartialAveragingService : BaseService<PartialAveragingMessage>
+    public class PartialAveragingService : QueueService<PartialAveragingMessage>
     {
         public const string PartialReduceQueueName = "partialreducequeue";
-        private const int milliSeconds = 500; //[patra]: comment purpose here !
+        private const int MilliSeconds = 500; //[patra]: comment purpose here !
 
         protected override void Start(PartialAveragingMessage message)
         {
@@ -52,7 +52,7 @@ namespace CloudDALVQ.Services
                 //[patra]: comment purpose there !
                 if (!allNames.Any())
                 {
-                    Thread.Sleep(milliSeconds);
+                    Thread.Sleep(MilliSeconds);
                     continue;
                 }
 

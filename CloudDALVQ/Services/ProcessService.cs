@@ -23,7 +23,7 @@ namespace CloudDALVQ
 {
     [QueueServiceSettings(AutoStart = true,
         Description = "Gradient descent service")]
-    public class ProcessService : BaseService<ProcessMessage>
+    public class ProcessService : QueueService<ProcessMessage>
     {
         private const string WorkerWitnessId = "0";
 

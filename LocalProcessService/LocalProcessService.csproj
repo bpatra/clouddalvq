@@ -53,8 +53,6 @@
     <Compile Include="DelayedGradientParallelExecution.cs" />
     <Compile Include="GradientParallelExecution.cs" />
     <Compile Include="LatencyMemoryProvider.cs" />
-    <Compile Include="LocalLauncher.cs" />
-    <Compile Include="LocalProcessService.cs" />
     <Compile Include="BasicParallelExecution.cs" />
     <Compile Include="MergedGradientParallelExecution.cs" />
     <Compile Include="MultiGradientProcessor.cs" />

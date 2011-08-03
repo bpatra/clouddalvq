@@ -23,10 +23,10 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
-    public class PartialReducingService : BaseService<PartialReducingMessage>
+    public class PartialReducingService : QueueService<PartialReducingMessage>
     {
         public const string PartialReduceQueueName = "partialreducegradientqueue";
-        private const int milliSeconds = 100; //[patra]: comment purpose here !
+        private const int MilliSeconds = 100; //[patra]: comment purpose here !
 
         protected override void Start(PartialReducingMessage message)
         {
@@ -53,7 +53,7 @@ namespace CloudDALVQ.Services
                 //If no prototypes need to be retrieved, we wait a bit before trying to load them again.
                 if (!updateMessages.Any())
                 {
-                    Thread.Sleep(milliSeconds);
+                    Thread.Sleep(MilliSeconds);
                     continue;
                 }
 

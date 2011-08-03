@@ -17,7 +17,7 @@ namespace CloudDALVQ.Services
 {
      [QueueServiceSettings(AutoStart = true,
         Description = "Experiment set up service for Batch KMeans")]
-    public class BatchSetUpService : BaseService<BatchSetupMessage>
+    public class BatchSetUpService : QueueService<BatchSetupMessage>
     {
          protected override void Start(BatchSetupMessage message)
          {

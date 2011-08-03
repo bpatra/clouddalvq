@@ -23,7 +23,7 @@ namespace CloudDALVQ.Services
 {
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by PartialReducingServices and produces the averaged version (shared version).")]
-    public class FinalReducingService : BaseService<FinalReducingMessage>
+    public class FinalReducingService : QueueService<FinalReducingMessage>
     {
         public const string FinalReduceQueueName = "finalreducegradientqueue";
         public const string FinaleReduceGroup = "finalereduceGroup";

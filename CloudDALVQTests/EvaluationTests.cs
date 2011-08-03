@@ -22,42 +22,6 @@ namespace CloudDALVQTests
     [TestFixture]
     public class EvaluationTests
     {
-        [Test]
-        public void EvaluationTest()
-        {
-            const int batchSize = 1000;
-            int k = 5;
-            int n = 100000;
-            int d = 2;
-            var miniBatch = new double[batchSize][];
-
-            var dataGenerator = new UniformGenerator(d, 1.0, 31321); //HACK : [durut] DataGenerator hard-coded
-
-            var settings = new Settings(n, d, 1, k, 30, 100, 5, batchSize, 10, 25000, 0.5, new TimeSpan(1, 0, 0),
-                                        new TimeSpan(1, 0, 0), GeneratorType.UniformInHyperCube, 34, false, true, true, true);
-            var localProtos = ProcessService.Initialization(settings, 15);
-
-            var processor = new Processor();
-            var scheduler = new SamplingScheduler(0);
-
-            var points = dataGenerator.GetData(n);
-            var prototypes = new WPrototypes()
-                                 {Prototypes = points.Take(k).ToArray(), Affectations = Range.Array(k).ToArray(i => 1)};
-            int batchCount = 0;
-            for (int i = 0; i < 100;i++ )
-            {
-                scheduler.MakeBatch(points, ref miniBatch);
-
-                //Processing the new points
-                processor.ProcessMiniBatch(miniBatch, ref localProtos, batchCount, 1.0);
-                batchCount++;
-            }
-
-            var generator = new UniformGenerator(d, 1.0, Rand.Next()); //Hack : [durut] DataGenerator hard-coded
-            var evaluator = new QuantizationEvaluator(prototypes.Prototypes, generator);
-        
-            evaluator.EvaluateWith(10000000); 
-        }
 
         [Test]
         public void RunTest()
