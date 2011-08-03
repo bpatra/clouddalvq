@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using CloudDALVQ.Handy;
 using Lokad.Cloud.Storage.Shared;
