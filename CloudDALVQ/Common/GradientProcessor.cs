@@ -7,12 +7,12 @@ using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Common
 {
-    public class DisplacementProcessor
+    public class GradientProcessor
     {
         /// <summary> </summary>
         private int _stepCount;
 
-        public DisplacementProcessor()
+        public GradientProcessor()
         {
             _stepCount = 1;
         }

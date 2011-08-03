@@ -76,7 +76,7 @@
     <Compile Include="Common\CustomContractAttribute.cs" />
     <Compile Include="Common\NewCustomFormatter.cs" />
     <Compile Include="Common\PrototypeProcessor.cs" />
-    <Compile Include="Common\DisplacementProcessor.cs" />
+    <Compile Include="Common\GradientProcessor.cs" />
     <Compile Include="Common\WPrototypesSerializer.cs" />
     <Compile Include="DataGenerator\BasicSplines.cs" />
     <Compile Include="DataGenerator\DataGeneratorFactory.cs" />

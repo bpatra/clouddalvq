@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicBSplinesTests.cs" />
-    <Compile Include="ComparingVersion.cs" />
     <Compile Include="NormalRandTests.cs" />
     <Compile Include="SchmidtTests.cs" />
     <Compile Include="SplinesMixtureGeneratorTests.cs" />
