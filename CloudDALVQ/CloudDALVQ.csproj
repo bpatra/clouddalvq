@@ -74,7 +74,7 @@
     <Compile Include="CloudDALVQModule.cs" />
     <Compile Include="Common\BitTreeCounter.cs" />
     <Compile Include="Common\CustomContractAttribute.cs" />
-    <Compile Include="Common\NewCustomFormatter.cs" />
+    <Compile Include="Common\CustomFormatter.cs" />
     <Compile Include="Common\PrototypeProcessor.cs" />
     <Compile Include="Common\GradientProcessor.cs" />
     <Compile Include="Common\WPrototypesSerializer.cs" />
@@ -91,14 +91,12 @@
     <Compile Include="DataGenerator\UniformGenerator.cs" />
     <Compile Include="Entities\Evaluation.cs" />
     <Compile Include="Entities\GeneratorType.cs" />
-    <Compile Include="Entities\ProfilingData.cs" />
     <Compile Include="Entities\Settings.cs" />
     <Compile Include="Entities\WPrototypes.cs" />
     <Compile Include="Handy\ExtendIEnumerable.cs" />
     <Compile Include="Handy\ExtendInt32.cs" />
     <Compile Include="Handy\ExtendStream.cs" />
     <Compile Include="Handy\ExtendType.cs" />
-    <Compile Include="Handy\ProjectionComparer.cs" />
     <Compile Include="Handy\Range.cs" />
     <Compile Include="Messages\EvaluationMessage.cs" />
     <Compile Include="Messages\FinalAveragingMessage.cs" />

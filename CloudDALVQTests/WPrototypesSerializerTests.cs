@@ -27,7 +27,7 @@ namespace CloudDALVQTests
             var wPrototypes = new WPrototypes() { Prototypes = prototypes, Affectations = affs };
             using (var stream = new MemoryStream())
             {
-                var serializer = new NewCustomFormatter() as IDataSerializer;
+                var serializer = new CustomFormatter() as IDataSerializer;
                 serializer.Serialize(wPrototypes, stream);
                 stream.Flush();
                 stream.Position = 0;
