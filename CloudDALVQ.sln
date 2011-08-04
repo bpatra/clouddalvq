@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalProcessService", "LocalProcessService\LocalProcessService.csproj", "{5AC77287-1D1F-48FD-8DD5-CDBB63383586}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudDALVQ", "CloudDALVQ\CloudDALVQ.csproj", "{5AB55AC8-3F80-4D2B-9E3B-2D1024731E56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudDALVQTests", "CloudDALVQTests\CloudDALVQTests.csproj", "{FD420B16-CAD3-44CB-B7E4-97B95DF36C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelCLVQ", "ParallelCLVQ\ParallelCLVQ.csproj", "{5AC77287-1D1F-48FD-8DD5-CDBB63383586}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -41,21 +41,6 @@ Global
 		{81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9}.ReleaseApi|Mixed Platforms.Build.0 = Release|x86
 		{81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9}.ReleaseApi|x86.ActiveCfg = Release|x86
 		{81FDC3BC-78B7-4BE2-9B86-3BA4C11E30B9}.ReleaseApi|x86.Build.0 = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|x86.ActiveCfg = Debug|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|x86.Build.0 = Debug|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Any CPU.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Mixed Platforms.Build.0 = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|x86.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|x86.Build.0 = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Any CPU.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Mixed Platforms.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Mixed Platforms.Build.0 = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|x86.ActiveCfg = Release|x86
-		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|x86.Build.0 = Release|x86
 		{5AB55AC8-3F80-4D2B-9E3B-2D1024731E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AB55AC8-3F80-4D2B-9E3B-2D1024731E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB55AC8-3F80-4D2B-9E3B-2D1024731E56}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -86,6 +71,21 @@ Global
 		{FD420B16-CAD3-44CB-B7E4-97B95DF36C92}.ReleaseApi|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FD420B16-CAD3-44CB-B7E4-97B95DF36C92}.ReleaseApi|Mixed Platforms.Build.0 = Release|Any CPU
 		{FD420B16-CAD3-44CB-B7E4-97B95DF36C92}.ReleaseApi|x86.ActiveCfg = Release|Any CPU
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|x86.ActiveCfg = Debug|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Debug|x86.Build.0 = Debug|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Any CPU.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|x86.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.Release|x86.Build.0 = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Any CPU.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Mixed Platforms.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|Mixed Platforms.Build.0 = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|x86.ActiveCfg = Release|x86
+		{5AC77287-1D1F-48FD-8DD5-CDBB63383586}.ReleaseApi|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
