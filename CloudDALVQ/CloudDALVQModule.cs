@@ -19,7 +19,7 @@ namespace CloudDALVQ
         protected override void Load(ContainerBuilder builder)
         {
             //Formatter 
-            builder.RegisterType<NewCustomFormatter>().As<IDataSerializer>();
+            builder.RegisterType<CustomFormatter>().As<IDataSerializer>();
         }
     }
 }

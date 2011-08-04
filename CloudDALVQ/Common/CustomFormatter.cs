@@ -14,7 +14,7 @@ using Lokad.Cloud.Storage.Shared;
 
 namespace CloudDALVQ.Common
 {
-    public class NewCustomFormatter : IDataSerializer
+    public class CustomFormatter : IDataSerializer
     {
         object IDataSerializer.Deserialize(System.IO.Stream sourceStream, System.Type type)
         {
