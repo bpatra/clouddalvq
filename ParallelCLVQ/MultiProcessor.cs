@@ -19,7 +19,7 @@ namespace LocalProcessService
         public PrototypeProcessor[] PrototypeProcessors { get; set; }
         public Sampler[] Schedulers { get; set; }
         public double[][][] Data { get; set; }
-        private readonly double[][][] _miniBatch;
+        private readonly double[][][] _miniGroups;
 
         private int P;
 
@@ -27,7 +27,7 @@ namespace LocalProcessService
         {
             PrototypeProcessors = Enumerable.Range(0, settings.M).Select(p => new PrototypeProcessor()).ToArray();
             Schedulers = Enumerable.Range(0, settings.M).Select(p => new Sampler(0)).ToArray();
-            _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
+            _miniGroups = Enumerable.Range(0, settings.M).Select(p => new double[settings.MiniGroupSize][]).ToArray();
             P = settings.M;
         }
 
@@ -35,8 +35,8 @@ namespace LocalProcessService
         {
             for (int p = 0; p < P; p++)
             {
-                Schedulers[p].MakeBatch(Data[p], ref _miniBatch[p]);
-                PrototypeProcessors[p].ProcessMiniBatch(_miniBatch[p], ref prototypes[p], batchCount, 1.0);
+                Schedulers[p].MakeBatch(Data[p], ref _miniGroups[p]);
+                PrototypeProcessors[p].ProcessMiniBatch(_miniGroups[p], ref prototypes[p], batchCount, 1.0);
             }
             return prototypes;
         }

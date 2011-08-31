@@ -41,7 +41,7 @@ namespace CloudDALVQ
             var readBuffer = new BlockingCollection<WPrototypes>(1);
             var writeBuffer = new BlockingCollection<WPrototypes>(1);
             var settings = BlobStorage.GetBlob(SettingsName.Default).Value;
-            int batchCount = 0;
+            int groupCount = 0;
 
             int readSuccessCount = 0;
             int writeSuccessCount = 0;
@@ -106,9 +106,9 @@ namespace CloudDALVQ
                     //batchCount will not be increased anymore and we may never jump into the next if
                     while (!writeBuffer.IsAddingCompleted)
                     {
-                        if (batchCount - lastPushed >= settings.PushPeriods)
+                        if (groupCount - lastPushed >= settings.PushPeriods)
                         {
-                            lastPushed = batchCount;
+                            lastPushed = groupCount;
 
                             //Open write buffer just before consuming it.
                             _wBufferOpen = true;
@@ -215,10 +215,10 @@ namespace CloudDALVQ
                 {
                     while (!readBuffer.IsCompleted)
                     {
-                        processor.ProcessMiniBatch(data, ref localPrototypes, ref localDeplacement, settings.BatchSize);
+                        processor.ProcessMiniBatch(data, ref localPrototypes, ref localDeplacement, settings.MiniGroupSize);
                         Thread.Sleep(1); //used so other threads could proceed.
 
-                        batchCount += settings.BatchSize;
+                        groupCount += settings.MiniGroupSize;
 
                         if (_wBufferOpen)//TODO: COMMENT relashion with pushPeriods integer.
                         {

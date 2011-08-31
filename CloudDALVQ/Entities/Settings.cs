@@ -37,7 +37,7 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public int KnotCount { get; set; }
 
-        /// <summary>Number of iterations to run if we choosed to run a batch-KMeans</summary>
+        /// <summary>Number of iterations for a batch-KMeans</summary>
         [DataMember]
         public int IterationIfBatchKMeans { get; set; }
 
@@ -50,9 +50,9 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public double PushPeriods { get; set; }
 
-        /// <summary>Number of points to process on each local computation.</summary>
+        /// <summary>Number of points needed to be process before a cycle of push thread and pull threads.</summary>
         [DataMember]
-        public int BatchSize { get; set; }
+        public int MiniGroupSize { get; set; }
 
         /// <summary>Expiration date time for temporary entities</summary>
         [DataMember]
@@ -65,7 +65,6 @@ namespace CloudDALVQ.Entities
         ///<summary>Date time at the begining of the execution.</summary>
         [DataMember]
         public DateTimeOffset StartTime { get; set; }
-
 
         /// <summary>Number of data points generated per worker</summary>
         [DataMember]
@@ -115,7 +114,7 @@ namespace CloudDALVQ.Entities
             G = g;
             IterationIfBatchKMeans = iterationIfBatch;
             KnotCount = knotCount;
-            BatchSize = batchSize;
+            MiniGroupSize = batchSize;
             PushPeriods = pushPeriods;
            
             EvaluationSampleCount = evaluationCount;

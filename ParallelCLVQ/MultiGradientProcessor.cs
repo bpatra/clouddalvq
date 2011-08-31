@@ -18,7 +18,7 @@ namespace LocalProcessService
         public GradientProcessor[] Processors { get; set; }
         public Sampler[] Schedulers { get; set; }
         public double[][][] Data { get; set; }
-        private readonly double[][][] _miniBatch;
+        private readonly double[][][] _miniGroups;
 
         private int P;
 
@@ -26,7 +26,7 @@ namespace LocalProcessService
         {
             Processors = Enumerable.Range(0, settings.M).Select(p => new GradientProcessor()).ToArray();
             Schedulers = Enumerable.Range(0, settings.M).Select(p => new Sampler(0)).ToArray();
-            _miniBatch = Enumerable.Range(0, settings.M).Select(p => new double[settings.BatchSize][]).ToArray();
+            _miniGroups = Enumerable.Range(0, settings.M).Select(p => new double[settings.MiniGroupSize][]).ToArray();
             P = settings.M;
         }
 
@@ -34,8 +34,8 @@ namespace LocalProcessService
         {
             for (int p = 0; p < P; p++)
             {
-                Schedulers[p].MakeBatch(Data[p], ref _miniBatch[p]);
-                Processors[p].ProcessMiniBatch(_miniBatch[p], ref localProtos[p], ref sumGradients[p], 1);
+                Schedulers[p].MakeBatch(Data[p], ref _miniGroups[p]);
+                Processors[p].ProcessMiniBatch(_miniGroups[p], ref localProtos[p], ref sumGradients[p], 1);
             }
         }
 
