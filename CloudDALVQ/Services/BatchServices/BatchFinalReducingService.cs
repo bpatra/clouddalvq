@@ -29,7 +29,7 @@ namespace CloudDALVQ.Services
             int iteration = 0;
             var pointsAlreadyProcessed = new int[settings.K];
 
-            while (iteration < settings.IterationIfBatchKMeans)
+            while (iteration < settings.IterationBatchKMeans)
             {
                 var prototypesVersions = LoadPrototypes(iteration, settings);
 
@@ -90,7 +90,7 @@ namespace CloudDALVQ.Services
 
         static WPrototypesName[] PrototypesRemainingToLoad(int iteration, Settings settings, List<string> prototypesAlreadyLoaded)
         {
-            if (settings.AveragingWith2Layers)
+            if (settings.Reducing2Layers)
             {
                 var partialReducerCount = Range.Array(settings.M).SliceArray((int)Math.Ceiling(Math.Sqrt(settings.M))).Length;
                 var partialIds = Range.Array(partialReducerCount);

@@ -46,7 +46,7 @@ namespace CloudDALVQ.Services
                  }
 
                  //Partial reducer messages
-                 if (settings.AveragingWith2Layers)
+                 if (settings.Reducing2Layers)
                  {
                      Put(new BatchPartialReducingMessage(i.ToString()));
                  }

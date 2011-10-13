@@ -14,6 +14,9 @@ using Lokad.Cloud.Storage.Shared;
 
 namespace CloudDALVQ.Common
 {
+    /// <summary>
+    /// Formatter for compression used by the O/C mapper.
+    /// </summary>
     public class CustomFormatter : IDataSerializer
     {
         object IDataSerializer.Deserialize(System.IO.Stream sourceStream, System.Type type)

@@ -18,26 +18,25 @@ namespace CloudDALVQ.Template
      [Serializable, DataContract]
     public class UniformWeirdTemplate
     {
-            const int p = 1;
-            const int n = 1000;
-            const int d = 2;
-            const int k = 5;
-            const int g = 50;
-            const int knotCount = 30;
-            const int batchSize = 30;
-            const int pushPeriods = 5;
-            const int evaluationCount = 20000;
-            const double mergingRatio = 1.0;
-            private const int iterationIfBatch = 5;
-            private const bool averagingWith2Layers = true;
+            const int M = 1;
+            const int N = 1000;
+            const int D = 2;
+            const int K = 5;
+            const int G = 50;
+            const int KnotCount = 30;
+            const int BatchSize = 30;
+            const int PushPeriods = 5;
+            const int EvaluationCount = 20000;
+            private const int IterationBatchKMeans = 5;
+            private const bool Reducing2Layers = true;
 
-            private const int seed = 17;
+            private const int Seed = 17;
 
             public static Settings Create()
             {
                 return new
-                    Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, pushPeriods, evaluationCount, new TimeSpan(0, 10,0), 
-                             new TimeSpan(0,1,0), GeneratorType.UniformInHyperCube, seed, averagingWith2Layers,true, true, true);
+                    Settings(N, D, M, K, G, KnotCount, IterationBatchKMeans, BatchSize, PushPeriods, EvaluationCount, new TimeSpan(0, 10,0), 
+                             new TimeSpan(0,1,0), GeneratorType.UniformInHyperCube, Seed, Reducing2Layers,true, true, true);
             }
     }
 }

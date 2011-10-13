@@ -150,7 +150,6 @@ namespace CloudDALVQTests
             TimeSpan additionalTimeForConsensus = new TimeSpan(0, 0, 20);
             
             const int iterationIfBatch = 5;
-            const double mergingRatio = 0.5;
 
             var processDuration = new TimeSpan(0, 5, 0);
 

@@ -42,18 +42,17 @@ namespace CloudDALVQ.Common
     /// 1) a job is run twice and we don't want the counter to be decremented twice. (Idempotency)
     /// 2) a job is run twice and we don't want the counter to hit -1 after all the decrementation 
     /// (would trigger next service twice and therefore double the workload).
-    /// 
-    /// 
+    ///  
     /// For n decrements, we have a tree depth of about log(n)/log(20). When a counter hits 0, it decrements the counter above him. 
     /// When the only counter at depth 0 hits 0, everything is completed. 
     /// </remarks>
     public class BitTreeCounter
     {
         /// <remarks>Optimized for Blob Storage latency.</remarks>
-        public const int MaxValuePerCounter = 20;
+        const int MaxValuePerCounter = 20;
 
         /// <summary>Maximal Depth of the BitTreeCounter. Theoretically handles up to 3.2 million decrements.</summary>
-        public const int MaxDepth = 5;
+        const int MaxDepth = 5;
 
         /// <summary>Container name for node entities blobNames</summary>
         private readonly string _containerName;
@@ -148,7 +147,7 @@ namespace CloudDALVQ.Common
                 bitArray[index] = true; //value at index 'index' is now marked as decremented
                 wasAlreadyDecremented = false;
 
-                var modifiedCounter = new NodeEntity()
+                var modifiedCounter = new NodeEntity
                 {
                     Count = counter.Count,
                     IndexAlreadyDecremented = new byte[counter.IndexAlreadyDecremented.Length]
@@ -161,12 +160,11 @@ namespace CloudDALVQ.Common
                 hasHitZeroForTheFirstTime = (modifiedCounter.Count == 0);
                 return modifiedCounter;
             }
-            else
-            {
-                hasHitZeroForTheFirstTime = false;
-                wasAlreadyDecremented = true;
-                return counter;
-            }
+
+            hasHitZeroForTheFirstTime = false;
+            wasAlreadyDecremented = true;
+            return counter;
+
         }
 
         /// <summary>Remove all the created entities using this BitTreeCounter, so a new BitTreeCounter could 
@@ -183,7 +181,7 @@ namespace CloudDALVQ.Common
             {
                 for (int j = 0; j < _numberOfCountersAtThisDepth[i]; j++)
                 {
-                    countersPositions.Add(new TreePosition() { X = j, Y = i });
+                    countersPositions.Add(new TreePosition{ X = j, Y = i });
                 }
             }
 

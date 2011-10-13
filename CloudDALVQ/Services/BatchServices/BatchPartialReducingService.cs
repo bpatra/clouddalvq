@@ -27,7 +27,7 @@ namespace CloudDALVQ.Services
             int iteration = 0;
 
             //HACK : change the condition below
-            while (iteration <settings.IterationIfBatchKMeans)
+            while (iteration <settings.IterationBatchKMeans)
             {
                 var prototypesVersions = LoadPrototypes(iteration, message.PartialId, settings);
 

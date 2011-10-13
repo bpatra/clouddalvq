@@ -4,10 +4,11 @@
 #endregion
 
 using System;
+using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Common
 {
-    /// <summary>Attribute telling the formatter we must use the custom formatter for WPrototypes.</summary>
+    /// <summary>Attribute that informs the formatter to use the custom formatter for <see cref="WPrototypes"/>.</summary>
     public class CustomContractAttribute : Attribute
     {
 

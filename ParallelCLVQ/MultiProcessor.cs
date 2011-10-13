@@ -16,27 +16,27 @@ namespace LocalProcessService
 {
     public class MultiProcessor
     {
-        public PrototypeProcessor[] PrototypeProcessors { get; set; }
+        public AveragingProcessor[] AveragingProcessors { get; set; }
         public Sampler[] Schedulers { get; set; }
         public double[][][] Data { get; set; }
         private readonly double[][][] _miniGroups;
 
-        private int P;
+        private readonly int M;
 
         public MultiProcessor(Settings settings)
         {
-            PrototypeProcessors = Enumerable.Range(0, settings.M).Select(p => new PrototypeProcessor()).ToArray();
+            AveragingProcessors = Enumerable.Range(0, settings.M).Select(p => new AveragingProcessor()).ToArray();
             Schedulers = Enumerable.Range(0, settings.M).Select(p => new Sampler(0)).ToArray();
             _miniGroups = Enumerable.Range(0, settings.M).Select(p => new double[settings.MiniGroupSize][]).ToArray();
-            P = settings.M;
+            M = settings.M;
         }
 
         public WPrototypes[] Process(int batchCount, WPrototypes[] prototypes)
         {
-            for (int p = 0; p < P; p++)
+            for (int p = 0; p < M; p++)
             {
                 Schedulers[p].MakeBatch(Data[p], ref _miniGroups[p]);
-                PrototypeProcessors[p].ProcessMiniBatch(_miniGroups[p], ref prototypes[p], batchCount, 1.0);
+                AveragingProcessors[p].ProcessMiniBatch(_miniGroups[p], ref prototypes[p], batchCount, 1.0);
             }
             return prototypes;
         }

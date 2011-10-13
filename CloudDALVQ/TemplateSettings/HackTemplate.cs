@@ -14,25 +14,25 @@ namespace CloudDALVQ.Template
 {
     public class HackTemplate
     {
-        private const int p = 1; 
-        const int n = 5000;
-        const int d = 10;
-        const int k = 100;
-        const int g = 300;
-        const int knotCount = 305;
-        const int batchSize = 10;
-        const int evaluationCount = 1000;
-        private const int iterationIfBatch = 5;
+        private const int M = 1; 
+        const int N = 5000;
+        const int D = 10;
+        const int K = 100;
+        const int G = 300;
+        const int KnotCount = 305;
+        const int BatchSize = 10;
+        const int EvaluationCount = 1000;
+        private const int IterationBatchKMeans = 5;
 
-        const int minBatchCountBetween2Writes = 2;
+        const int PushPeriods = 2;
 
-        private const int minutesExpiration = 5;
+        private const int MinutesExpiration = 5;
 
         public static Settings Create()
         {
-            return new Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, minBatchCountBetween2Writes, evaluationCount, 
-                                new TimeSpan(0,minutesExpiration,0),
-                                new TimeSpan(0, 0, minutesExpiration), GeneratorType.UniformInHyperCube, 13, true, false, true, true);
+            return new Settings(N, D, M, K, G, KnotCount, IterationBatchKMeans, BatchSize, PushPeriods, EvaluationCount, 
+                                new TimeSpan(0,MinutesExpiration,0),
+                                new TimeSpan(0, 0, MinutesExpiration), GeneratorType.UniformInHyperCube, 13, true, false, true, true);
         }
     }
 }

@@ -24,25 +24,24 @@ namespace CloudDALVQ.Template
         const int G = 1500;
         const int KnotCount = 100;
 
-        const int IterationIfBatch = 5;
+        const int IterationBatchKMeans = 5;
         const int BatchSize = 1;
         
         const int EvaluationCount = 25000;
         const int PushPeriods = 100;
-        private const double MergingRatio = 0.5;
 
-        private const int seed = 17;
-        private const int minutesExpiration = 110;
-        private const bool sameInit = true;
-        private const bool processingEnabled = true;
-        private const bool evaluationEnabled = true;
-        private const bool averaging2Layers = false;
+        private const int Seed = 17;
+        private const int MinutesExpiration = 110;
+        private const bool SameInit = true;
+        private const bool ProcessingEnabled = true;
+        private const bool EvaluationEnabled = true;
+        private const bool Reducing2Layers = false;
 
         public static Settings Create()
         {
-            return new Settings(N, D, M, K, G, KnotCount, IterationIfBatch, BatchSize, PushPeriods,
-                EvaluationCount, new TimeSpan(0, minutesExpiration, 0),
-                new TimeSpan(0, 0, 0, 20), GeneratorType.OrthoSplines, seed, averaging2Layers, sameInit, processingEnabled, evaluationEnabled );
+            return new Settings(N, D, M, K, G, KnotCount, IterationBatchKMeans, BatchSize, PushPeriods,
+                EvaluationCount, new TimeSpan(0, MinutesExpiration, 0),
+                new TimeSpan(0, 0, 0, 20), GeneratorType.OrthoSplines, Seed, Reducing2Layers, SameInit, ProcessingEnabled, EvaluationEnabled );
         }
     }
 }

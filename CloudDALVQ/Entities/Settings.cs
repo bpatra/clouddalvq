@@ -13,7 +13,7 @@ namespace CloudDALVQ.Entities
     [Serializable, DataContract]
     public class Settings
     {
-        /// <summary>Number of data points generated per worker</summary>
+        /// <summary>Number of data points generated per<see cref="ProcessService"/> instances.</summary>
         [DataMember]
         public int N { get; set; }
 
@@ -21,11 +21,11 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public int D { get; set; }
 
-        /// <summary>Number of "Mappers"</summary>
+        /// <summary>Number of "Mappers" i.e., <see cref="ProcessService"/> instances.</summary>
         [DataMember]
         public int M { get; set; }
 
-        /// <summary>Number of prototypes</summary>
+        /// <summary>Number of prototypes.</summary>
         [DataMember]
         public int K { get; set; }
 
@@ -37,16 +37,15 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public int KnotCount { get; set; }
 
-        /// <summary>Number of iterations for a batch-KMeans</summary>
+        /// <summary>Number of iterations for a batch-KMeans.</summary>
         [DataMember]
-        public int IterationIfBatchKMeans { get; set; }
+        public int IterationBatchKMeans { get; set; }
 
-        /// <summary>Number of points to be processed in evaluation of a version of prototypes</summary>
+        /// <summary>Number of points to be processed in evaluation of a version of prototypes.</summary>
         [DataMember]
         public int EvaluationSampleCount { get; set; }
 
-        /// <summary>Minimum number of batchs required 
-        /// for a new push action on the shared version.</summary>
+        /// <summary>Minimum number of batchs required for a new push action on the shared version.</summary>
         [DataMember]
         public double PushPeriods { get; set; }
 
@@ -66,11 +65,11 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public DateTimeOffset StartTime { get; set; }
 
-        /// <summary>Number of data points generated per worker</summary>
+        /// <summary>Number of data points generated per worker.</summary>
         [DataMember]
         public TimeSpan TimeForConsensus { get; set; }
 
-        /// <summary>Type of data generated</summary>
+        /// <summary>Type of data generated.</summary>
         [DataMember]
         public GeneratorType GeneratorType { get; set; }
 
@@ -78,36 +77,36 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public int Seed { get; set; }
 
-        /// <summary>If enabled, prototypes initialisation is the same in each worker and in shared version</summary>
+        /// <summary>If enabled, prototypes initialisation is the same in each worker and in shared version.</summary>
         [DataMember]
         public bool SameInitialisation { get; set; }
 
-        /// <summary>If disabled, workers are only communicating</summary>
+        /// <summary>If disabled, <see cref="ProcessService"/> instances are only communicating.</summary>
         [DataMember]
         public bool ProcessingEnabled { get; set; }
 
-        /// <summary>If disabled, no evaluation</summary>
+        /// <summary>If disabled, no evaluation.</summary>
         [DataMember]
         public bool EvaluationEnabled { get; set; }
 
         [DataMember]
         public string Log { get; set; }
 
-        /// <summary>Averaging can be done with 1 layer (small latency) or 2 layers (bigger scale-up)</summary>
+        /// <summary>Reducing can be done with 1 layer (small latency) or 2 layers (bigger scale-up).</summary>
         [DataMember]
-        public bool AveragingWith2Layers { get; set; }
+        public bool Reducing2Layers { get; set; }
 
-        public Settings(int n, int d, int m, int k, int g, int knotCount, int iterationIfBatch,
-            int batchSize, int pushPeriods, 
-            int evaluationCount,  TimeSpan timeForProcessing, TimeSpan timeForConsensus, 
-            GeneratorType genType, int seed, bool averagingWith2Layers , bool sameInitialisation, bool processingEnabled, bool evaluationEnabled)
+        public Settings(int n, int d, int m, int k, int g, int knotCount, int iterationBatchKMeans,
+            int batchSize, int pushPeriods, int evaluationCount,  TimeSpan timeForProcessing, 
+            TimeSpan timeForConsensus, GeneratorType genType, int seed, bool reducing2Layers,
+            bool sameInitialisation, bool processingEnabled, bool evaluationEnabled)
         {
             N = n;
             D = d;
             M = m;
             K = k;
             G = g;
-            IterationIfBatchKMeans = iterationIfBatch;
+            IterationBatchKMeans = iterationBatchKMeans;
             KnotCount = knotCount;
             MiniGroupSize = batchSize;
             PushPeriods = pushPeriods;
@@ -121,7 +120,7 @@ namespace CloudDALVQ.Entities
             ProcessExpiration = StartTime.Add(timeForProcessing);
             Expiration = ProcessExpiration.Add(TimeForConsensus).AddHours(1);
 
-            AveragingWith2Layers = averagingWith2Layers;
+            Reducing2Layers = reducing2Layers;
 
             SameInitialisation = sameInitialisation;
             ProcessingEnabled = processingEnabled;

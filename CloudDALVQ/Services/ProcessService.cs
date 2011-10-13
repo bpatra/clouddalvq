@@ -48,7 +48,7 @@ namespace CloudDALVQ
             int readFailureCount = 0;
             int writeFailureCount = 0;
 
-            var averagingQueueName = settings.AveragingWith2Layers
+            var averagingQueueName = settings.Reducing2Layers
                                          ? PartialReduceService.PartialReduceQueueName + message.PartialId
                                          : FinalReduceService.FinalReduceQueueName;
 
@@ -179,7 +179,7 @@ namespace CloudDALVQ
                 localPrototypes = settings.SameInitialisation ? Initialization(settings, settings.Seed + 19934)
                     : Initialization(settings, settings.Seed + message.Seed + 1);
 
-                var processor = new GradientProcessor();
+                var processor = new DisplacementProcessor();
 
                 var localDeplacement = InitDeplacement(settings);
 

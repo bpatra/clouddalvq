@@ -31,7 +31,7 @@ namespace CloudDALVQ.Services
             int iterationRetrieved = 0;
 
             //Same condition as in the merging services
-            while (iterationRetrieved < settings.IterationIfBatchKMeans)
+            while (iterationRetrieved < settings.IterationBatchKMeans)
             {
                 //Add conditions to avoid massive stress on blobstorage.
                 if (DateTimeOffset.Now > lastUpdate + timeSpan)

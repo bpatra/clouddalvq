@@ -39,7 +39,7 @@ namespace CloudDALVQ.Services
             int iteration = 0;
 
             //HACK : change the condition below
-            while (iteration < settings.IterationIfBatchKMeans)
+            while (iteration < settings.IterationBatchKMeans)
             {
                 prototypes = Process(data, prototypes);
 
