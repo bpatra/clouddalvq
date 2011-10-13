@@ -10,19 +10,20 @@ using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.DataGenerator
 {
+    /// <summary>
+    /// Allows quick instanciation of <see cref="IGenerator"/> directly from <see cref="Settings"/>.
+    /// </summary>
     public static class DataGeneratorFactory
     {
         public static IGenerator GetGenerator(Settings settings, int seed)
         {
             switch (settings.GeneratorType)
             {
-
                 case GeneratorType.UniformInHyperCube:
                     return new UniformGenerator(settings.D, 10.0, seed);
 
                 case GeneratorType.OrthoSplines:
                     return SplinesGeneratorFactory.OrthoMixture(settings.G, settings.D, settings.KnotCount, seed);
-
 
                 default:
                     throw new NotImplementedException();

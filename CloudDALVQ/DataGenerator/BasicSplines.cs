@@ -14,6 +14,10 @@ namespace CloudDALVQ.DataGenerator
 {
     public class BasicSplines
     {
+        /// <summary>
+        /// Basic B Splines functions
+        /// <see cref="http://en.wikipedia.org/wiki/B-spline"/>
+        /// </summary>
         private readonly double[] _knots;
         private const int Degree = 3;
 

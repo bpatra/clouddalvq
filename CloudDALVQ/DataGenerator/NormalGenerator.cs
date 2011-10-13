@@ -13,6 +13,10 @@ using MathNet.Numerics.Random;
 
 namespace CloudDALVQ.DataGenerator
 {
+
+    /// <summary>
+    /// Generator that creates vector with independant Gaussian components.
+    /// </summary>
     public class NormalGenerator : IGenerator
     {
         private readonly Normal _noiseRand;

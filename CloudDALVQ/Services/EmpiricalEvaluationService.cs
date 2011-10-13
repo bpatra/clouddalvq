@@ -22,6 +22,9 @@ using Lokad.Cloud.Storage.Shared.Logging;
 
 namespace CloudDALVQ.Services
 {
+    /// <summary>
+    /// Service that measures the empirical distortion. The very same dataset is generated again to this purpose.
+    /// </summary>
      [QueueServiceSettings(AutoStart = true, 
        Description = "Evaluation service")]
     public class EmpiricalEvaluationService : QueueService<EvaluationMessage>

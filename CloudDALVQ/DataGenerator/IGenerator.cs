@@ -3,11 +3,13 @@
 // URL: http://code.google.com/p/clouddalvq/
 #endregion
 
-
 using System.Runtime.Serialization;
 
 namespace CloudDALVQ.DataGenerator
 {
+    /// <summary>
+    /// Interface for random generators that produce data samples.
+    /// </summary>
     public interface IGenerator
     {
         double[][] GetData(int dataCount);
