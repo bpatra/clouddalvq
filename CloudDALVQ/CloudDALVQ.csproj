@@ -116,9 +116,7 @@
     <Compile Include="Services\DownsizeService.cs" />
     <Compile Include="Services\EmpiricalEvaluationService.cs" />
     <Compile Include="Services\EvaluationService.cs" />
-    <Compile Include="Services\FinalAverageService.cs" />
     <Compile Include="Services\FinalReduceService.cs" />
-    <Compile Include="Services\PartialAverageService.cs" />
     <Compile Include="Services\PartialReduceService.cs" />
     <Compile Include="Services\ProcessService.cs" />
     <Compile Include="Services\SnapshotService.cs" />
