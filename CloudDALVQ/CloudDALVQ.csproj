@@ -85,7 +85,6 @@
     <Compile Include="DataGenerator\SplinesGeneratorFactory.cs" />
     <Compile Include="DataGenerator\SplinesMixtureGenerator.cs" />
     <Compile Include="DataGenerator\IGenerator.cs" />
-    <Compile Include="Common\Sampler.cs" />
     <Compile Include="DataGenerator\QuantizationEvaluator.cs" />
     <Compile Include="DataGenerator\Spline.cs" />
     <Compile Include="DataGenerator\UniformGenerator.cs" />

@@ -3,7 +3,6 @@
 // URL: http://code.google.com/p/clouddalvq/
 #endregion
 
-
 using System;
 using System.Linq;
 using CloudDALVQ.Entities;
