@@ -62,7 +62,6 @@
     <Compile Include="NormalRandTests.cs" />
     <Compile Include="SchmidtTests.cs" />
     <Compile Include="SplinesMixtureGeneratorTests.cs" />
-    <Compile Include="EvaluationTests.cs" />
     <Compile Include="OverallTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UtilTests.cs" />

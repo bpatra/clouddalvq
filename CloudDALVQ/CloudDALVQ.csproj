@@ -84,7 +84,6 @@
     <Compile Include="DataGenerator\SplinesGeneratorFactory.cs" />
     <Compile Include="DataGenerator\SplinesMixtureGenerator.cs" />
     <Compile Include="DataGenerator\IGenerator.cs" />
-    <Compile Include="DataGenerator\QuantizationEvaluator.cs" />
     <Compile Include="DataGenerator\Spline.cs" />
     <Compile Include="DataGenerator\UniformGenerator.cs" />
     <Compile Include="Entities\Evaluation.cs" />
@@ -115,7 +114,6 @@
     <Compile Include="Services\BatchServices\BatchSnapshotService.cs" />
     <Compile Include="Services\DownsizeService.cs" />
     <Compile Include="Services\EmpiricalEvaluationService.cs" />
-    <Compile Include="Services\EvaluationService.cs" />
     <Compile Include="Services\FinalReduceService.cs" />
     <Compile Include="Services\PartialReduceService.cs" />
     <Compile Include="Services\ProcessService.cs" />
