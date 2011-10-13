@@ -17,9 +17,11 @@ using MathNet.Numerics.LinearAlgebra.Double.Factorization;
 
 namespace CloudDALVQ.DataGenerator
 {
+    /// <summary>
+    /// Helps building splines mixture random generators with several different logics.
+    /// </summary>
     public static class SplinesGeneratorFactory
     {
-    
         public static SplinesMixtureGenerator OrthoMixture(int G, int d, int knotCount, int seed)
         {
             const double scale = 100.0;

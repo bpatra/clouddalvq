@@ -12,6 +12,10 @@ using CloudDALVQ;
 
 namespace CloudDALVQ.DataGenerator
 {
+    /// <summary>
+    /// B-spline abbreviated in spline to avoid confusion with Basic B-Spline.
+    /// <see cref="http://en.wikipedia.org/wiki/B-spline"/>
+    /// </summary>
     public class Spline
     {
         private readonly double[] _tt;
