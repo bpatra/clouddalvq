@@ -12,6 +12,9 @@ using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Template
 {
+    /// <summary>
+    /// Template that has no particular purpose. It was used for debugging and several other tests.
+    /// </summary>
     public class HackTemplate
     {
         private const int M = 1; 

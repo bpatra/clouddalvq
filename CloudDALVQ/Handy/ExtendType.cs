@@ -31,27 +31,5 @@ namespace CloudDALVQ.Handy
 			}
 			return new T[0];
 		}
-
-		/// <summary>
-		/// Returns single attribute from the type.
-		/// </summary>
-		/// <typeparam name="T">Attribute to use</typeparam>
-		/// <param name="target">Attribute provider</param>
-		///<param name="inherit"><see cref="MemberInfo.GetCustomAttributes(Type,bool)"/></param>
-		/// <returns><em>Null</em> if the attribute is not found</returns>
-		/// <exception cref="InvalidOperationException">If there are 2 or more attributes</exception>
-		public static T GetAttribute<T>(this ICustomAttributeProvider target, bool inherit) where T : Attribute
-		{
-			if (target.IsDefined(typeof (T), inherit))
-			{
-				var attributes = target.GetCustomAttributes(typeof (T), inherit);
-				if (attributes.Length > 1)
-				{
-					throw new InvalidOperationException("More than one attribute is declared");
-				}
-				return (T) attributes[0];
-			}
-			return null;
-		}
 	}
 }

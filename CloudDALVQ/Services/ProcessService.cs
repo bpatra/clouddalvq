@@ -21,6 +21,10 @@ using Lokad.Cloud.Storage.Shared.Logging;
 
 namespace CloudDALVQ
 {
+    /// <summary>
+    /// Core logic of the DALVQ algorithm. The several instances perform CLVQ executions.
+    /// Retrieve the shared version and push displacement terms using multi-threading.
+    /// </summary>
     [QueueServiceSettings(AutoStart = true,
         Description = "Gradient descent service")]
     public class ProcessService : QueueService<ProcessMessage>
@@ -195,7 +199,7 @@ namespace CloudDALVQ
                             if (readBuffer.TryTake(out aggregatedProtos))
                             {
                                 //Local prototypes become aggregated prototypes + localDeplacement
-                                LocalMerge(ref localPrototypes, aggregatedProtos, localDeplacement);
+                                LocalReducing(ref localPrototypes, aggregatedProtos, localDeplacement);
                             }
 
                             //We use TryAdd instead of Add since we could manage to try to add several times a prototype while the fence is open.
@@ -226,7 +230,7 @@ namespace CloudDALVQ
                             if (readBuffer.TryTake(out aggregatedProtos))
                             {
                                 //Local prototypes become aggregated prototypes + localDeplacement
-                                LocalMerge(ref localPrototypes, aggregatedProtos, localDeplacement);
+                                LocalReducing(ref localPrototypes, aggregatedProtos, localDeplacement);
                             }
 
                             //We use TryAdd instead of Add since we could manage to try to add several times a prototype while the fence is open.
@@ -289,10 +293,10 @@ namespace CloudDALVQ
 
             var affectations = new int[settings.K];
 
-            return new WPrototypes() {Affectations = affectations, Prototypes = initGradient};
+            return new WPrototypes{Affectations = affectations, Prototypes = initGradient};
         }
 
-        public static void LocalMerge(ref WPrototypes localVersion, WPrototypes sharedVersion, WPrototypes localDeplacement)
+        public static void LocalReducing(ref WPrototypes localVersion, WPrototypes sharedVersion, WPrototypes localDeplacement)
         {
             localVersion.Prototypes = sharedVersion.Prototypes;
   

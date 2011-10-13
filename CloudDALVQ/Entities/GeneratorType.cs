@@ -25,8 +25,5 @@ namespace CloudDALVQ.Entities
 
         [EnumMember]
         OrthoSplines,
-
-        [EnumMember]
-        BrotMother
     }
 }

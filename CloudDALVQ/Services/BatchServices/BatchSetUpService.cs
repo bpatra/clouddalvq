@@ -15,7 +15,10 @@ using Lokad.Cloud.Storage;
 
 namespace CloudDALVQ.Services
 {
-     [QueueServiceSettings(AutoStart = true,
+    /// <summary>
+    /// Service that launchs BatchKMeans.
+    /// </summary>
+    [QueueServiceSettings(AutoStart = true,
         Description = "Experiment set up service for Batch KMeans")]
     public class BatchSetUpService : QueueService<BatchSetupMessage>
     {

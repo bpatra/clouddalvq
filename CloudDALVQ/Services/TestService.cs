@@ -21,9 +21,21 @@ namespace CloudDALVQ.Services
     {
          protected override void Start(TestMessage message)
          {
-             Action action1 = () => {Thread.Sleep(1000); Log.InfoFormat("End Action1, time :" +DateTimeOffset.Now); };
-             Action action2 = () => { Thread.Sleep(10000); Log.InfoFormat("End Action2, time :" + DateTimeOffset.Now); };
-             Action action3 = () => { Thread.Sleep(60000); Log.InfoFormat("End Action3, time :" + DateTimeOffset.Now); };
+             Action action1 = () =>
+                                  {
+                                      Thread.Sleep(1000);
+                                      Log.InfoFormat("End Action1, time :" + DateTimeOffset.Now);
+                                  };
+             Action action2 = () =>
+                                  {
+                                      Thread.Sleep(10000);
+                                      Log.InfoFormat("End Action2, time :" + DateTimeOffset.Now);
+                                  };
+             Action action3 = () =>
+                                  {
+                                      Thread.Sleep(60000);
+                                      Log.InfoFormat("End Action3, time :" + DateTimeOffset.Now);
+                                  };
 
              Log.InfoFormat("Start at :" + DateTimeOffset.Now);
              Parallel.Invoke(new[]{action1, action2, action3});

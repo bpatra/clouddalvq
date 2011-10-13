@@ -13,8 +13,7 @@ using Lokad.Cloud.Storage;
 
 namespace CloudDALVQ.Services
 {
-    /// <summary>Snapshot service downloads prototypes shared version, and push them into 
-    /// a dedicated part of the storage. This is used to evaluate evolution of loss function with time.</summary>
+    /// <summary>Service that downloads shared version for BatchKMeans.</summary>
     [QueueServiceSettings(AutoStart = true,
        Description = "Snapshot service gets snapshot of prototypes and store them in a dedicated part of the storage ")]
     public class BatchSnapshotService : QueueService<BatchSnapshotMessage>

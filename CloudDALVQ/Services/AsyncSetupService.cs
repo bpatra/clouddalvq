@@ -17,7 +17,7 @@ using Lokad.Cloud.Storage;
 namespace CloudDALVQ.Services
 {
     /// <summary>
-    /// Initialisation service, start up the dalvq algorithm.
+    /// Initialisation service, starts the DALVQ algorithm.
     /// </summary>
     [QueueServiceSettings(AutoStart = true, Description = "Experiment set up service")]
     public class AsyncSetupService : QueueService<AsyncSetupMessage>

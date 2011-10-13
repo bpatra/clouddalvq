@@ -65,8 +65,6 @@ namespace CloudDALVQ.Common
 
                 _stepCount++;
             }
-
-
         }
     }
 }

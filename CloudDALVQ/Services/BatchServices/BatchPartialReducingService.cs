@@ -16,6 +16,9 @@ using System.Linq;
 
 namespace CloudDALVQ.Services
 {
+    /// <summary>
+    /// Partial layer responsible for reducing task in BatchKMeans.
+    /// </summary>
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
     public class BatchPartialReducingService : QueueService<BatchPartialReducingMessage>

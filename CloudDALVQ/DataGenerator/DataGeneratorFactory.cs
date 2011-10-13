@@ -23,8 +23,6 @@ namespace CloudDALVQ.DataGenerator
                 case GeneratorType.OrthoSplines:
                     return SplinesGeneratorFactory.OrthoMixture(settings.G, settings.D, settings.KnotCount, seed);
 
-                case GeneratorType.BrotMother:
-                    return new DummyGenerator(settings.D);
 
                 default:
                     throw new NotImplementedException();

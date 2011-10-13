@@ -20,7 +20,7 @@ using Lokad.Cloud.Storage.Shared.Logging;
 
 namespace CloudDALVQ.Services
 {
-    /// <summary>Service responsible for the clustering implementation</summary>
+    /// <summary>The processing action for BatchKMeans.</summary>
     [QueueServiceSettings(AutoStart = true,
        ProcessingTimeoutSeconds = 15000)]
     public class BatchProcessService : QueueService<BatchProcessMessage>

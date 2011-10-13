@@ -17,7 +17,6 @@ namespace CloudDALVQ.Common
         /// <summary> </summary>
         private int _stepCount;
 
-
         public AveragingProcessor()
         {
             _stepCount = 1;

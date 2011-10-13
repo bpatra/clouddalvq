@@ -12,6 +12,10 @@ namespace CloudDALVQ
 {
 	public class Util
 	{
+        /// <summary>
+        /// Retrives the nearest prototype and the associated 
+        /// distance for a sample with respect to prototypes.
+        /// </summary>
 		public static int NearestPrototype(double[] data, double[][] prototypes, out double minDist)
 		{
 			minDist = double.MaxValue;
@@ -30,6 +34,9 @@ namespace CloudDALVQ
 			return minIndex;
 		}
 
+        /// <summary>
+        /// Usual quadratic distance.
+        /// </summary>
 		public static double Distance(double[] item1, double[] item2)
 		{
 			double dist = 0;
@@ -40,7 +47,9 @@ namespace CloudDALVQ
 			return dist;
 		}
 
-
+        /// <summary>
+        /// Simple vectorial average.
+        /// </summary>
 		public static double[] Average(double[][] points)
 		{
 			var sum = new double[points[0].Length];
@@ -57,6 +66,9 @@ namespace CloudDALVQ
 			return sum;
 		}
 
+        /// <summary>
+        /// Used for plotting prototypes.
+        /// </summary>
 		public static void WritePrototype(double[][] prototype, StreamWriter writer)
 		{
 			for (int t = 0; t < prototype[0].Length; t++)
@@ -69,7 +81,5 @@ namespace CloudDALVQ
 				writer.WriteLine(str);
 			}
 		}
-
-       
 	}
 }

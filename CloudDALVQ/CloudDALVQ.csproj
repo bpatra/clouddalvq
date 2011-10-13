@@ -80,7 +80,6 @@
     <Compile Include="Common\WPrototypesSerializer.cs" />
     <Compile Include="DataGenerator\BasicSplines.cs" />
     <Compile Include="DataGenerator\DataGeneratorFactory.cs" />
-    <Compile Include="DataGenerator\DummyGenerator.cs" />
     <Compile Include="DataGenerator\NormalGenerator.cs" />
     <Compile Include="DataGenerator\SplinesGeneratorFactory.cs" />
     <Compile Include="DataGenerator\SplinesMixtureGenerator.cs" />

@@ -14,7 +14,6 @@ namespace CloudDALVQ.Messages
     {
         public SnapshotMessage()
         {
-
         }
     }
 }

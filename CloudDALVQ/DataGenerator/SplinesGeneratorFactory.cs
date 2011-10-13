@@ -19,8 +19,7 @@ namespace CloudDALVQ.DataGenerator
 {
     public static class SplinesGeneratorFactory
     {
-     
-
+    
         public static SplinesMixtureGenerator OrthoMixture(int G, int d, int knotCount, int seed)
         {
             const double scale = 100.0;
@@ -29,7 +28,7 @@ namespace CloudDALVQ.DataGenerator
             int dimension = knotCount - SplinesMixtureGenerator.Degree - 1;
             const int seedCoeff = 2000;
             var unif = new UniformGenerator(dimension, 1.0, seedCoeff);
-            double[][] eta = BlockwiseOrthogonal(unif.GetData(G), scale);
+            double[][] eta = BlockWiseOrthogonal(unif.GetData(G), scale);
             double[] knots = Range.Array(knotCount).ToArray(i => (double)i);
             return new SplinesMixtureGenerator(eta, stdDev, seed, knots, d);
         }
@@ -54,8 +53,6 @@ namespace CloudDALVQ.DataGenerator
             return new SplinesMixtureGenerator(eta, stdDev, seed, knotCount, d);
         }
 
-
-    
         public static double[][] Schmidt(double[][] vectors, double scale)
         {
             int K = vectors.Length;
@@ -111,7 +108,7 @@ namespace CloudDALVQ.DataGenerator
         }
 
 
-        public static double[][] BlockwiseOrthogonal(double[][] vectors, double scale)
+        static double[][] BlockWiseOrthogonal(double[][] vectors, double scale)
         {
             int D = vectors[0].Length;
             var results = new List<double[]>();

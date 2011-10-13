@@ -26,17 +26,13 @@ namespace CloudDALVQ.Common
                 var binarySerializer = new BinaryFormatter();
                 return binarySerializer.Deserialize(sourceStream);
             }
-            else
-            {
-                var serializer = GetXmlSerializer(type);
+            var serializer = GetXmlSerializer(type);
 
-                using (var decompressed = sourceStream.Decompress(true))
-                using (var reader = XmlDictionaryReader.CreateBinaryReader(decompressed, XmlDictionaryReaderQuotas.Max))
-                {
-                    return serializer.ReadObject(reader);
-                }
+            using (var decompressed = sourceStream.Decompress(true))
+            using (var reader = XmlDictionaryReader.CreateBinaryReader(decompressed, XmlDictionaryReaderQuotas.Max))
+            {
+                return serializer.ReadObject(reader);
             }
-            
         }
 
         public void Serialize(object instance, System.IO.Stream destinationStream)

@@ -18,6 +18,9 @@ using Lokad.Cloud.Storage.Shared.Logging;
 
 namespace CloudDALVQ.Services
 {
+    /// <summary>
+    /// ReducingService for BatchKMeans algorithms.
+    /// </summary>
     [QueueServiceSettings(AutoStart = true,
        Description = "Service that gathers versions owned by processing workers affected to it and produces the averaged version.")]
     public class BatchFinalReducingService : QueueService<BatchFinalReducingMessage>

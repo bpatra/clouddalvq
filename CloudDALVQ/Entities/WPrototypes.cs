@@ -34,7 +34,7 @@ namespace CloudDALVQ.Entities
             var newAff = new int[k];
             Array.Copy(Affectations, 0, newAff, 0, k);
 
-            return new WPrototypes() { Prototypes = newProto, Affectations = newAff };
+            return new WPrototypes{ Prototypes = newProto, Affectations = newAff };
         }
 
         public void Empty()
@@ -57,7 +57,7 @@ namespace CloudDALVQ.Entities
                 prototypes[k] = new double[D];
             }
             var affectations = new int[K];
-            return new WPrototypes() {Affectations = affectations, Prototypes = prototypes};
+            return new WPrototypes{Affectations = affectations, Prototypes = prototypes};
         }
     }
 }

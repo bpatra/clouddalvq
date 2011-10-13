@@ -22,7 +22,7 @@ namespace CloudDALVQ.DataGenerator
             {
                 get
                 {
-                    return Count > 0 ? (_sumSquare/Count) - (_sum/Count)*(_sum/Count): 0;
+                    return Count > 0 ? (_sumSquare/Count) - (_sum/Count)*(_sum/Count) : 0;
                 }
             }
 
@@ -65,52 +65,5 @@ namespace CloudDALVQ.DataGenerator
                     }
                 }
             }
-        }
-
-     public class QuantizationEvaluator2
-    {
-            /// <summary>Return Quantization Mean Error </summary>
-            public double QuantizationError { get { return Count > 0 ? _sum / Count : 0; } }
-            public double Variance
-            {
-                get
-                {
-                    return Count > 0 ? (_sumSquare/Count) - (_sum/Count)*(_sum/Count): 0;
-                }
-            }
-
-
-            private double _sum;
-            private double _sumSquare;
-
-            public int Count { get; set;}
-
-            private readonly double[][] _points;
-            private readonly double[][] _prototypes;
-
-            public QuantizationEvaluator2(double[][] prototypes, double[][] points)
-            {
-                _points = points;
-                _prototypes = prototypes;
-            }
-
-            public void Evaluate()
-            {
-             //Generates data for evaluation of some given prototypes
-                    var evaluationData = _points;
-
-                    for (int n = 0; n < evaluationData.Length;n++)
-                    {
-                        var point = evaluationData[n];
-                        double distanceMin;
-
-                        Util.NearestPrototype(point, _prototypes, out distanceMin);
-
-                        _sum += distanceMin;
-                        _sumSquare += distanceMin*distanceMin;
-                        Count++;
-                    }
-                }
-            
         }
 }

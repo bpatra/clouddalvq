@@ -27,7 +27,6 @@ namespace CloudDALVQ.DataGenerator
             _knots = knots;
         }
 
-
         public double[][] Evaluation(double[] tt)
         {
             int m = _knots.Length;
@@ -58,9 +57,7 @@ namespace CloudDALVQ.DataGenerator
                 }
             }
 
-
             return results.Take(_knots.Length - Degree - 1).ToArray();
-          
         }
     }
 }
