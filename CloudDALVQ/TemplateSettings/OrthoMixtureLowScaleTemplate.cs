@@ -25,7 +25,6 @@ namespace CloudDALVQ.Template
         const int batchSize = 1;
         const int evaluationCount = 2500;
         const int pushPeriods = 100;
-        const double mergingRatio = 0.5;
 
         private const int seed = 0;
         private const int minutesExpiration = 10;
@@ -39,7 +38,7 @@ namespace CloudDALVQ.Template
         public static Settings Create()
         {
             return new Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, pushPeriods,
-                evaluationCount, mergingRatio, new TimeSpan(0, minutesExpiration, 0), 
+                evaluationCount,  new TimeSpan(0, minutesExpiration, 0), 
                 new TimeSpan(0, 0, 0, 20), GeneratorType.OrthoSplines, seed, averagingWith2Layers,sameInit, processingEnabled, evaluationEnabled);
         }
     }

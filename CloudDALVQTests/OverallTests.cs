@@ -48,7 +48,7 @@ namespace CloudDALVQTests
             var processDuration = new TimeSpan(0,5,0);
 
             var settings = new Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize,  2 ,
-                evaluationCount, mergingRatio, processDuration, additionalTimeForConsensus, GeneratorType.UniformInHyperCube, 13, false, true, true, true);
+                evaluationCount, processDuration, additionalTimeForConsensus, GeneratorType.UniformInHyperCube, 13, false, true, true, true);
 
             var asyncSetupService = new AsyncSetupService {Providers = providers, RuntimeProviders = runTimeProviders};
             var finalMergeService = new FinalReduceService { Providers = providers, RuntimeProviders = runTimeProviders };
@@ -155,7 +155,7 @@ namespace CloudDALVQTests
             var processDuration = new TimeSpan(0, 5, 0);
 
             var settings = new Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, 2,
-                evaluationCount, mergingRatio, processDuration, additionalTimeForConsensus, GeneratorType.UniformInHyperCube, 13, false, true, true, true);
+                evaluationCount, processDuration, additionalTimeForConsensus, GeneratorType.UniformInHyperCube, 13, false, true, true, true);
 
             var asyncSetupService = new BatchSetUpService { Providers = providers, RuntimeProviders = runTimeProviders };
             var finalMergeService = new BatchFinalReducingService { Providers = providers, RuntimeProviders = runTimeProviders };

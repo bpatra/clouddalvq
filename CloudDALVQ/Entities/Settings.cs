@@ -70,11 +70,6 @@ namespace CloudDALVQ.Entities
         [DataMember]
         public TimeSpan TimeForConsensus { get; set; }
 
-        /// <summary>Weight or ratio for the local merging action. 
-        /// i.e specify the weighted average between local version and the shared version early retrieved.</summary>
-        [DataMember]
-        public double LocalMergeRatio { get; set; }
-
         /// <summary>Type of data generated</summary>
         [DataMember]
         public GeneratorType GeneratorType { get; set; }
@@ -104,7 +99,7 @@ namespace CloudDALVQ.Entities
 
         public Settings(int n, int d, int m, int k, int g, int knotCount, int iterationIfBatch,
             int batchSize, int pushPeriods, 
-            int evaluationCount, double mergingRatio, TimeSpan timeForProcessing, TimeSpan timeForConsensus, 
+            int evaluationCount,  TimeSpan timeForProcessing, TimeSpan timeForConsensus, 
             GeneratorType genType, int seed, bool averagingWith2Layers , bool sameInitialisation, bool processingEnabled, bool evaluationEnabled)
         {
             N = n;
@@ -119,7 +114,6 @@ namespace CloudDALVQ.Entities
            
             EvaluationSampleCount = evaluationCount;
             TimeForConsensus = timeForConsensus;
-            LocalMergeRatio = mergingRatio;
             GeneratorType = genType;
             Seed = seed;
 

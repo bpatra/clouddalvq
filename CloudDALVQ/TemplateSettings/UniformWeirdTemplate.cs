@@ -36,7 +36,7 @@ namespace CloudDALVQ.Template
             public static Settings Create()
             {
                 return new
-                    Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, pushPeriods, evaluationCount, mergingRatio, new TimeSpan(0, 10,0), 
+                    Settings(n, d, p, k, g, knotCount, iterationIfBatch, batchSize, pushPeriods, evaluationCount, new TimeSpan(0, 10,0), 
                              new TimeSpan(0,1,0), GeneratorType.UniformInHyperCube, seed, averagingWith2Layers,true, true, true);
             }
     }
