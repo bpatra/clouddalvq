@@ -30,7 +30,7 @@ namespace LocalProcessService
                     settings.M = m;
                     settings.PushPeriods = tau;
 
-                    var execution = new DelayedGradientParallelExecution();
+                    var execution = new DelayedParallelDisplacementExecution();
                     execution.Start(settings);
                 }
             }

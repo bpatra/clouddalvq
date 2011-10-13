@@ -10,32 +10,37 @@ using System.Text;
 using CloudDALVQ;
 using CloudDALVQ.Common;
 using CloudDALVQ.Entities;
+using Lokad.Cloud.ServiceFabric.Runtime;
 
 namespace LocalProcessService
 {
-    public class MultiGradientProcessor
+    /// <summary>
+    /// Handles concurrent CLVQ execution with displacement averaging logic.
+    /// </summary>
+    public class MultiAveragingProcessor
     {
-        public DisplacementProcessor[] Processors { get; set; }
+        public AveragingProcessor[] AveragingProcessors { get; set; }
         public double[][][] Data { get; set; }
         private readonly double[][][] _miniGroups;
 
-        private int P;
+        private readonly int M;
 
-        public MultiGradientProcessor(Settings settings)
+        public MultiAveragingProcessor(Settings settings)
         {
-            Processors = Enumerable.Range(0, settings.M).Select(p => new DisplacementProcessor()).ToArray();
+            AveragingProcessors = Enumerable.Range(0, settings.M).Select(p => new AveragingProcessor()).ToArray();
             _miniGroups = Enumerable.Range(0, settings.M).Select(p => new double[settings.MiniGroupSize][]).ToArray();
-            P = settings.M;
+            M = settings.M;
         }
 
-        public void ProcessMiniBatch(ref WPrototypes[] localProtos, ref WPrototypes[] sumGradients)
+        public WPrototypes[] Process(int batchCount, WPrototypes[] prototypes)
         {
-            for (int p = 0; p < P; p++)
+            for (int p = 0; p < M; p++)
             {
-                Processors[p].ProcessMiniBatch(_miniGroups[p], ref localProtos[p], ref sumGradients[p], 1);
+                AveragingProcessors[p].ProcessMiniBatch(_miniGroups[p], ref prototypes[p], batchCount, 1.0);
             }
+            return prototypes;
         }
-
     }
 }
 
+   
