@@ -8,15 +8,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CloudDALVQ;
-using CloudDALVQ.DataGenerator;
 using CloudDALVQ.Entities;
 
 namespace LocalProcessService
 {
     public class ParallelDisplacementExecution
     {
-        private const int MaxBatchCount = 4000;
+        private const int MaxIterationCount = 4000;
         private const string BasePath = @"../../../Output/CorrectedParallel/";
         private const int Frequency = 100;
 
@@ -25,18 +23,24 @@ namespace LocalProcessService
             var writer = File.CreateText(BasePath + "M=" + settings.M + "tau=" + settings.PushPeriods + ".txt");
 
             var data = ParallelHelpers.GetData(settings);
-            var multiProcessor = new MultiDisplacementProcessor(settings) { Data = data };
+            var processors = ParallelHelpers.GetDisplacementProcessors(settings);
             var wPrototypes = ParallelHelpers.Initialization(settings);
 
             var sharedVersion = wPrototypes[0].Clone();
             var sumGradients = ParallelHelpers.Reset(settings);
 
-            int batchcount = 0;
-            while (batchcount < MaxBatchCount)
+            for (int t = 0; t < MaxIterationCount; t++)
             {
-                multiProcessor.ProcessMiniBatch(ref wPrototypes, ref sumGradients);
+                var currentIndex = t % settings.N;
 
-                if (batchcount % settings.PushPeriods == 0)
+                //For each emulated machine, process one point
+                for (int m = 0; m < settings.M; m++)
+                {
+                    processors[m].ProcessSample(data[m][currentIndex], ref wPrototypes[m], ref sumGradients[m]);
+                }
+
+                //If we need to merge
+                if (t % settings.PushPeriods == 0)
                 {
                     for (int p = 0; p < settings.M; p++)
                     {
@@ -48,7 +52,7 @@ namespace LocalProcessService
                             }
                         }
                     }
-                    for (int p= 0;  p <settings.M; p++)
+                    for (int p = 0; p < settings.M; p++)
                     {
                         wPrototypes[p] = sharedVersion.Clone();
                     }
@@ -56,16 +60,15 @@ namespace LocalProcessService
                     sumGradients = ParallelHelpers.Reset(settings);
                 }
 
-                if (batchcount%Frequency == 0)
+                if (t % Frequency == 0)
                 {
                     var error = ParallelHelpers.Evaluate(sharedVersion, settings);
-                    writer.WriteLine(batchcount + ";" + error);
-                    Console.WriteLine(batchcount);
+                    writer.WriteLine(t + ";" + error);
                 }
-                batchcount++;
             }
+
             writer.Close();
         }
-
     }
 }
+

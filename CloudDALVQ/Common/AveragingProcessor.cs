@@ -85,6 +85,42 @@ namespace CloudDALVQ.Common
 
         }
 
-     
+        public void ProcessSample(double[] sample, ref WPrototypes localProtos)
+        {
+            var K = localProtos.Prototypes.Length;
+            var D = sample.Length;
+
+            var point = sample;
+            var minDist = double.MaxValue;
+            int bestIndex = -1;
+
+            //Finding the nearest prototype
+            for (int k = 0; k < K; k++)
+            {
+                var centroid = localProtos.Prototypes[k];
+                var dist = 0.0;
+                for (int d = 0; d < D; d++)
+                {
+                    var s = point[d] - centroid[d];
+                    dist += s * s;
+                }
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    bestIndex = k;
+                }
+            }
+
+            double eps = (1.0 / (double)Math.Max(Math.Sqrt(_stepCount), 1));
+
+            for (int d = 0; d < D; d++)
+            {
+                var val = localProtos.Prototypes[bestIndex][d];
+                localProtos.Prototypes[bestIndex][d] = (1 - eps) * val + eps * point[d];
+            }
+            localProtos.Affectations[bestIndex]++;
+
+            _stepCount++;
+        }
     }
 }

@@ -21,8 +21,8 @@ namespace LocalProcessService
         static void Main(string[] args)
         {
             var settings = OrthoMixtureLowScaleTemplate.Create();
-            var mS = new[] { 1, 2, 10};
-            var tauS = new[] { 1 , 10, 100, 200};
+            var mS = new[] { 1, 2, 10 };
+            var tauS = new[] { 1, 10, 100, 200 };
             foreach (var tau in tauS)
             {
                 foreach (var m in mS)
@@ -30,10 +30,13 @@ namespace LocalProcessService
                     settings.M = m;
                     settings.PushPeriods = tau;
 
-                    var execution = new DelayedParallelDisplacementExecution();
+                    //var execution = new DelayedParallelDisplacementExecution();
+                    //execution.Start(settings);
+
+                    var execution = new ParallelDisplacementExecution2();
                     execution.Start(settings);
                 }
-            }
+            }     
         }
     }
 }

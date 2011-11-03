@@ -3,6 +3,7 @@
 // URL: http://code.google.com/p/clouddalvq/
 #endregion
 
+using System;
 using CloudDALVQ.Entities;
 
 namespace CloudDALVQ.Common
@@ -65,6 +66,47 @@ namespace CloudDALVQ.Common
 
                 _stepCount++;
             }
+        }
+
+        public void ProcessSample(double[] sample, ref WPrototypes localProtos, ref WPrototypes sumGradients)
+        {
+            var K = localProtos.Prototypes.Length;
+            var D = sample.Length;
+
+            var point = sample;
+            var minDist = double.MaxValue;
+            int bestIndex = -1;
+
+            //Finding the nearest prototype
+            for (int k = 0; k < K; k++)
+            {
+                var centroid = localProtos.Prototypes[k];
+                var dist = 0.0;
+                for (int d = 0; d < D; d++)
+                {
+                    var s = point[d] - centroid[d];
+                    dist += s * s;
+                }
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    bestIndex = k;
+                }
+            }
+
+            double eps = 1.0 / Math.Sqrt(_stepCount);
+
+            for (int d = 0; d < D; d++)
+            {
+                var delta = eps * (localProtos.Prototypes[bestIndex][d] - point[d]);
+                localProtos.Prototypes[bestIndex][d] -= delta;
+                sumGradients.Prototypes[bestIndex][d] -= delta;
+            }
+
+            localProtos.Affectations[bestIndex]++;
+            sumGradients.Affectations[bestIndex]++;
+
+            _stepCount++;
         }
     }
 }

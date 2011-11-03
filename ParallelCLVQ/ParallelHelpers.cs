@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CloudDALVQ;
+using CloudDALVQ.Common;
 using CloudDALVQ.DataGenerator;
 using CloudDALVQ.Entities;
 
@@ -24,6 +25,20 @@ namespace LocalProcessService
                 .GetData(settings.N);
             }
             return data;
+        }
+
+        public static AveragingProcessor[] GetAveragingProcessors(Settings settings)
+        {
+            return Enumerable.Range(0, settings.M)
+                .Select(p => new AveragingProcessor())
+                .ToArray();
+        }
+
+        public static DisplacementProcessor[] GetDisplacementProcessors(Settings settings)
+        {
+            return Enumerable.Range(0, settings.M)
+                .Select(p => new DisplacementProcessor())
+                .ToArray();
         }
 
         public static double Evaluate(WPrototypes prototypes, Settings settings)

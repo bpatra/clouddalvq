@@ -3,21 +3,20 @@
 // URL: http://code.google.com/p/clouddalvq/
 #endregion
 
-
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using CloudDALVQ.Entities;
+using CloudDALVQ.Handy;
 
 namespace LocalProcessService
 {
-    public class DelayedParalellDisplacementExecution
+    public class ParallelRandomDelayedExecution
     {
-        private const int MaxIterationCount = 4000;
-        private const string BasePath = @"../../../Output/DelayedParallelDisplacement/";
+        private const int MaxIterationCount = 3000;
+        private const string BasePath = @"../../../Output/RandomDelayedParallelDisplacement/";
         private const int Frequency = 100;
+
+        private static readonly Random Generator = new Random(17);
 
         public void Start(Settings settings)
         {
@@ -30,6 +29,11 @@ namespace LocalProcessService
             var sharedVersion = wPrototypes[0].Clone();
             var sumGradients = ParallelHelpers.Reset(settings);
 
+            WPrototypes[] incomingSharedVersions = Range.Array(settings.M).ToArray(i => sharedVersion.Clone()); //one incoming shared version per emulated machine
+            WPrototypes[] uploadedDisplacements = Range.Array(settings.M).ToArray(i => sumGradients[i]); //one displacement term per emulated machine
+
+            int[] incomingTimes = Range.Array(settings.M).ToArray(i => 1);//NextTimeSpan(Tau, 2*Tau)); //one next communication time per emulated machine
+
             for (int t = 0; t < MaxIterationCount; t++)
             {
                 var currentIndex = t % settings.N;
@@ -40,33 +44,48 @@ namespace LocalProcessService
                     processors[m].ProcessSample(data[m][currentIndex], ref wPrototypes[m], ref sumGradients[m]);
                 }
 
-                //If we need to merge
-                if (t % settings.PushPeriods == 0)
+                //READ
+                for (int m = 0; m < settings.M;m++ )
                 {
-                    for (int m = 0; m < settings.M; m++)
+                    //if it's time to read
+                    if (incomingTimes[m] == t)
                     {
                         for (int k = 0; k < settings.K; k++)
                         {
                             for (int d = 0; d < settings.D; d++)
                             {
-                                wPrototypes[m].Prototypes[k][d] = sharedVersion.Prototypes[k][d] + sumGradients[m].Prototypes[k][d];
+                                wPrototypes[m].Prototypes[k][d] = incomingSharedVersions[m].Prototypes[k][d] +
+                                                                  sumGradients[m].Prototypes[k][d];
                             }
                         }
-                    }
 
-                    for (int m = 0; m < settings.M; m++)
-                    {
-                        for (int k = 0; k < settings.K; k++)
-                        {
-                            for (int d = 0; d < settings.D; d++)
-                            {
-                                sharedVersion.Prototypes[k][d] += sumGradients[m].Prototypes[k][d];
-                            }
-                        }
+                        incomingSharedVersions[m] = sharedVersion.Clone();
                     }
-
-                    sumGradients = ParallelHelpers.Reset(settings);
                 }
+
+                //WRITE
+                for (int m = 0; m < settings.M;m++ )
+                {
+                    //if it's time to write
+                    if (incomingTimes[m] == t)
+                    {
+                        for (int k = 0; k < settings.K; k++)
+                        {
+                            for (int d = 0; d < settings.D; d++)
+                            {
+                                sharedVersion.Prototypes[k][d] += uploadedDisplacements[m].Prototypes[k][d];
+                            }
+                        }
+
+                        //Preparing next incoming I/O
+                        incomingTimes[m] += NextTimeSpan((int) settings.PushPeriods, (int)(2 * settings.PushPeriods));
+                        //incomingSharedVersions[m] = sharedVersion.Clone();
+                        uploadedDisplacements[m] = sumGradients[m].Clone();
+
+                        //resetting the displacement term
+                        sumGradients[m].Empty();
+                    }
+                }  
 
                 if (t % Frequency == 0)
                 {
@@ -76,6 +95,11 @@ namespace LocalProcessService
             }
 
             writer.Close();
+        }
+
+        static int NextTimeSpan(int min, int max)
+        {
+            return min + Generator.Next(max - min);
         }
     }
 }

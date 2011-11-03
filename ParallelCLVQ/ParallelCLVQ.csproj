@@ -50,13 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelayedParalellDisplacementExecution2.cs" />
     <Compile Include="DelayedParallelDisplacementExecution.cs" />
+    <Compile Include="ParallelAverageExecution2.cs" />
     <Compile Include="ParallelDisplacementExecution.cs" />
     <Compile Include="LatencyMemoryProvider.cs" />
     <Compile Include="ParallelAverageExecution.cs" />
     <Compile Include="MultiDisplacementProcessor.cs" />
     <Compile Include="MultiAveragingProcessor.cs" />
+    <Compile Include="ParallelDisplacementExecution2.cs" />
     <Compile Include="ParallelHelpers.cs" />
+    <Compile Include="ParallelRandomDelayedExecution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
